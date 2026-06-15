@@ -808,10 +808,48 @@
         <div style="font-size:13px; font-weight:700; color:#222;">Orari flessibili</div>
         <div style="font-size:11px; color:#888; margin-top:2px;">Aperto fino alle 21:00</div>
       </div>
-      <div style="text-align:center; flex:1; min-width:120px;">
+      <div style="text-align:center; flex:1; min-width:120px; cursor:pointer;" onclick="document.getElementById('modal-fedelta').style.display='flex'">
         <div style="font-size:26px; margin-bottom:6px;">🎁</div>
         <div style="font-size:13px; font-weight:700; color:#222;">Programma fedeltà</div>
         <div style="font-size:11px; color:#888; margin-top:2px;">Punti e vantaggi esclusivi</div>
+        <div style="font-size:11px; font-weight:700; color:#222; margin-top:4px; text-decoration:underline; text-underline-offset:2px;">Scopri →</div>
+      </div>
+
+      <!-- ══ MODALE PROGRAMMA FEDELTÀ ══ -->
+      <div id="modal-fedelta" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.55); z-index:1000; align-items:center; justify-content:center; padding:20px;">
+        <div style="background:#fff; border-radius:20px; max-width:520px; width:100%; padding:40px; position:relative; box-shadow:0 24px 80px rgba(0,0,0,.25);">
+          <!-- Chiudi -->
+          <button onclick="document.getElementById('modal-fedelta').style.display='none'" style="position:absolute; top:16px; right:16px; background:none; border:none; font-size:22px; color:#aaa; cursor:pointer; line-height:1;">✕</button>
+          <!-- Header modale -->
+          <div style="font-size:32px; margin-bottom:12px;">🎁</div>
+          <div style="display:inline-block; background:#222; color:#fff; font-size:10px; font-weight:700; letter-spacing:.1em; padding:3px 10px; border-radius:3px; margin-bottom:14px;">PROGRAMMA FEDELTÀ</div>
+          <h3 style="font-size:22px; font-weight:800; color:#111; margin-bottom:8px;">Ogni trattamento conta.</h3>
+          <p style="font-size:14px; color:#666; line-height:1.7; margin-bottom:24px;">Con il programma fedeltà Love Sun accumuli punti ad ogni visita e accedi a vantaggi esclusivi riservati alle nostre clienti più affezionate.</p>
+          <!-- Come funziona -->
+          <div style="background:#f8f8f8; border-radius:12px; padding:20px; margin-bottom:20px;">
+            <div style="font-size:11px; font-weight:700; letter-spacing:.1em; color:#999; text-transform:uppercase; margin-bottom:14px;">Come funziona</div>
+            <div style="display:flex; flex-direction:column; gap:12px;">
+              <div style="display:flex; align-items:flex-start; gap:12px;">
+                <div style="background:#222; color:#fff; border-radius:50%; width:24px; height:24px; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:800; flex-shrink:0;">1</div>
+                <div style="font-size:13px; color:#444; line-height:1.5;"><strong>Prenota e vieni in salone</strong> — ogni trattamento ti fa guadagnare punti fedeltà.</div>
+              </div>
+              <div style="display:flex; align-items:flex-start; gap:12px;">
+                <div style="background:#222; color:#fff; border-radius:50%; width:24px; height:24px; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:800; flex-shrink:0;">2</div>
+                <div style="font-size:13px; color:#444; line-height:1.5;"><strong>Accumula punti</strong> — i punti si sommano ad ogni visita, per tutti i servizi.</div>
+              </div>
+              <div style="display:flex; align-items:flex-start; gap:12px;">
+                <div style="background:#222; color:#fff; border-radius:50%; width:24px; height:24px; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:800; flex-shrink:0;">3</div>
+                <div style="font-size:13px; color:#444; line-height:1.5;"><strong>Accedi ai vantaggi</strong> — sconti, trattamenti omaggio e offerte riservate alle clienti fedeli.</div>
+              </div>
+            </div>
+          </div>
+          <div class="wf-note" style="margin-bottom:20px;">Dettagli e regolamento del programma da definire con il centro</div>
+          <!-- CTA -->
+          <div style="display:flex; gap:10px;">
+            <a href="contatti.html" style="flex:1; text-decoration:none;"><button style="width:100%; padding:13px; background:#222; color:#fff; border:none; border-radius:8px; font-size:14px; font-weight:700; cursor:pointer;">Iscriviti ora</button></a>
+            <button onclick="document.getElementById('modal-fedelta').style.display='none'" style="padding:13px 20px; background:transparent; color:#555; border:1.5px solid #ddd; border-radius:8px; font-size:14px; font-weight:600; cursor:pointer;">Chiudi</button>
+          </div>
+        </div>
       </div>
     </div>
 
