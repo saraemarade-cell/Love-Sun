@@ -469,6 +469,48 @@
       justify-content: space-between;
     }
 
+    /* ── FAQ ── */
+    .faq-bg { background: #fafafa; }
+    .faq-list { margin-top: 32px; display: flex; flex-direction: column; gap: 12px; }
+    .faq-item {
+      background: #fff;
+      border: 1.5px solid #e0e0e0;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 24px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #111;
+      cursor: pointer;
+      user-select: none;
+    }
+    .faq-question:hover { background: #f5f5f5; }
+    .faq-arrow { font-size: 18px; color: #aaa; transition: transform .2s; flex-shrink: 0; }
+    .faq-answer {
+      display: none;
+      padding: 0 24px 18px;
+      font-size: 14px;
+      color: #555;
+      line-height: 1.7;
+      border-top: 1px solid #f0f0f0;
+    }
+    .faq-item.open .faq-answer { display: block; }
+    .faq-item.open .faq-arrow { transform: rotate(180deg); }
+    .faq-category-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: #aaa;
+      margin: 24px 0 10px;
+    }
+    .faq-item.open .faq-question { color: #111; }
+
     /* ── FLOATING WHATSAPP ── */
     .wa-float {
       position: fixed;
@@ -749,7 +791,116 @@
     </section>
   </div>
 </div>
-<div class="section-divider">SEZIONE 7 — SEDI</div>
+<div class="section-divider">SEZIONE 7 — FAQ</div>
+
+<!-- ════════════════════════════════════════ FAQ ════════════════════════════════════════ -->
+<div class="faq-bg section-full">
+  <div style="max-width:1200px; margin:0 auto;">
+    <section style="padding:60px 0;">
+      <div class="section-tag">FAQ</div>
+      <div class="wf-label">H2</div>
+      <h2 class="wf">Domande frequenti</h2>
+      <p class="wf">Tutto quello che vuoi sapere prima di prenotare. Non trovi la risposta? <strong>Scrivici su WhatsApp.</strong></p>
+
+      <div class="faq-list">
+
+        <div class="faq-category-label">Epilazione Laser</div>
+
+        <div class="faq-item open">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            Quante sedute servono per l'epilazione laser?
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-answer">
+            Il numero di sedute varia in base al fototipo, al colore del pelo e all'area trattata. In media si consigliano 6–8 sedute per risultati duraturi. Durante la consulenza gratuita il nostro team definirà un programma personalizzato per te.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            L'epilazione laser fa male?
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-answer">
+            Con la tecnologia EPILED 818 il trattamento è veloce, sicuro e totalmente indolore. La sensazione percepita è un leggero tepore sulla pelle.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            Posso fare l'epilazione laser d'estate o con la pelle abbronzata?
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-answer">
+            Sì. Il laser EPILED 818 è adatto a tutti i fototipi e può essere utilizzato anche su pelle abbronzata, a differenza della luce pulsata tradizionale. Contattaci per una consulenza personalizzata.
+          </div>
+        </div>
+
+        <div class="faq-category-label">Trattamenti Corpo & T-Shape</div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            Quante sedute servono per vedere i risultati con il T-Shape?
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-answer">
+            I primi risultati si notano già dopo le prime sedute. Per un programma completo di rimodellamento si consigliano in genere 8–10 sedute. Il nostro team definirà un percorso personalizzato durante la consulenza gratuita.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            Il T-Shape funziona per la cellulite?
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-answer">
+            Sì. Il T-Shape 2 combina radiofrequenza, aspirazione vacuum e laser LLLT per agire sulla cellulite, migliorare la microcircolazione e levigare la pelle. È riconosciuto dalla FDA per sicurezza ed efficacia.
+          </div>
+        </div>
+
+        <div class="faq-category-label">Prenotazioni & Generale</div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            Come posso prenotare un trattamento?
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-answer">
+            Puoi prenotare online tramite Treatwell, scriverci su WhatsApp oppure chiamarci direttamente. Siamo disponibili per rispondere a qualsiasi domanda prima della prenotazione.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            La consulenza gratuita è davvero senza impegno?
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-answer">
+            Assolutamente sì. La consulenza è gratuita e senza alcun obbligo di acquisto. Il nostro team analizzerà le tue esigenze e ti indicherà il percorso più adatto, senza pressioni.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            Avete parcheggio?
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-answer">
+            Sì, entrambe le sedi dispongono di parcheggio nelle vicinanze. Per indicazioni dettagliate consulta la mappa nella sezione Sedi oppure contattaci.
+          </div>
+        </div>
+
+      </div><!-- /faq-list -->
+
+      <div style="margin-top:32px;">
+        <span style="font-size:14px; color:#555;">Non hai trovato la risposta? &nbsp;</span>
+        <button class="btn-lg-secondary" style="font-size:13px; padding:10px 20px;">💬 Scrivici su WhatsApp</button>
+      </div>
+
+    </section>
+  </div>
+</div>
+<div class="section-divider">SEZIONE 8 — SEDI</div>
 
 <!-- ════════════════════════════════════════ SEDI ════════════════════════════════════════ -->
 <section>
