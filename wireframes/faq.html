@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ — Domande Frequenti — Love Sun</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Georgia', serif; background: #faf8f5; color: #2c2c2c; }
+
+    /* ── NAV ── */
+    nav { position: sticky; top: 0; z-index: 100; background: #fff; border-bottom: 1px solid #e8e0d5; }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .logo { font-size: 1.5rem; font-weight: 700; color: #b5813a; letter-spacing: .04em; text-decoration: none; }
+    .nav-links { display: flex; gap: 0; list-style: none; position: relative; }
+    .nav-links > li { position: relative; }
+    .nav-links > li > a { display: block; padding: 20px 16px; text-decoration: none; color: #2c2c2c; font-size: .92rem; font-family: sans-serif; transition: color .2s; }
+    .nav-links > li > a:hover, .nav-links > li > a.active { color: #b5813a; }
+    .dropdown-menu { display: none; position: absolute; top: calc(100% + 8px); left: 0; background: #fff; border: 1px solid #e8e0d5; border-radius: 8px; min-width: 200px; box-shadow: 0 8px 24px rgba(0,0,0,.1); padding: 8px 0; z-index: 200; }
+    .dropdown-menu::before { content: ''; position: absolute; top: -12px; left: 0; right: 0; height: 12px; }
+    .dropdown-menu a { display: block; padding: 10px 20px; color: #2c2c2c; text-decoration: none; font-size: .88rem; font-family: sans-serif; transition: background .15s; }
+    .dropdown-menu a:hover { background: #faf8f5; color: #b5813a; }
+    .nav-links > li:hover .dropdown-menu { display: block; }
+    .nav-cta { background: #b5813a; color: #fff !important; padding: 10px 20px !important; border-radius: 6px; font-weight: 600; }
+    .nav-cta:hover { background: #9a6d30 !important; color: #fff !important; }
+    .has-submenu { position: relative; }
+    .submenu { display: none; position: absolute; left: 100%; top: 0; background: #fff; border: 1px solid #e8e0d5; border-radius: 8px; min-width: 180px; box-shadow: 0 8px 24px rgba(0,0,0,.1); padding: 8px 0; }
+    .has-submenu:hover .submenu { display: block; }
+    .submenu a { display: block; padding: 9px 18px; color: #2c2c2c; text-decoration: none; font-size: .86rem; font-family: sans-serif; }
+    .submenu a:hover { background: #faf8f5; color: #b5813a; }
+
+    /* ── WF ── */
+    .wf-label { display: inline-block; background: #e8e0d5; color: #5c4a2a; font-family: monospace; font-size: .7rem; padding: 2px 7px; border-radius: 3px; margin-bottom: 6px; }
+    .section-tag { font-family: monospace; font-size: .68rem; background: #b5813a22; color: #b5813a; border: 1px solid #b5813a44; padding: 2px 8px; border-radius: 12px; display: inline-block; margin-bottom: 12px; }
+    .section-divider { border: none; border-top: 1px dashed #d5c9b8; margin: 60px 0; }
+
+    /* ── HERO ── */
+    .hero { background: #2c2c2c; color: #fff; padding: 72px 24px; text-align: center; }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 14px; }
+    .hero p { font-family: sans-serif; color: #d4c8b4; font-size: 1.1rem; max-width: 520px; margin: 0 auto 28px; }
+    .hero-search { display: flex; max-width: 480px; margin: 0 auto; gap: 0; }
+    .hero-search input { flex: 1; padding: 14px 20px; border: none; border-radius: 8px 0 0 8px; font-family: sans-serif; font-size: 1rem; background: #fff; color: #2c2c2c; }
+    .hero-search button { background: #b5813a; color: #fff; border: none; padding: 0 24px; border-radius: 0 8px 8px 0; font-family: sans-serif; font-size: .95rem; font-weight: 600; cursor: pointer; }
+
+    /* ── LAYOUT ── */
+    .page-body { max-width: 1100px; margin: 0 auto; padding: 64px 24px; display: grid; grid-template-columns: 240px 1fr; gap: 48px; align-items: start; }
+
+    /* ── SIDEBAR ── */
+    .sidebar { position: sticky; top: 80px; }
+    .sidebar h3 { font-family: sans-serif; font-size: .85rem; text-transform: uppercase; letter-spacing: .08em; color: #888; margin-bottom: 14px; }
+    .sidebar-nav { list-style: none; }
+    .sidebar-nav li a { display: block; padding: 9px 14px; border-radius: 6px; font-family: sans-serif; font-size: .88rem; color: #2c2c2c; text-decoration: none; transition: background .15s, color .15s; border-left: 2px solid transparent; }
+    .sidebar-nav li a:hover, .sidebar-nav li a.active { background: #f4efe6; color: #b5813a; border-left-color: #b5813a; }
+    .sidebar-contact { margin-top: 32px; background: #f4efe6; border-radius: 10px; padding: 20px; }
+    .sidebar-contact h4 { font-family: sans-serif; font-size: .85rem; margin-bottom: 10px; }
+    .sidebar-contact p { font-family: sans-serif; font-size: .82rem; color: #555; line-height: 1.7; }
+    .sidebar-contact a { color: #b5813a; text-decoration: none; font-weight: 600; }
+    .sidebar-contact .wa-link { display: block; margin-top: 12px; background: #25d366; color: #fff; text-align: center; padding: 10px; border-radius: 7px; font-family: sans-serif; font-size: .85rem; font-weight: 600; text-decoration: none; }
+
+    /* ── FAQ CONTENT ── */
+    .faq-section { margin-bottom: 56px; }
+    .faq-section h2 { font-size: 1.6rem; margin-bottom: 28px; padding-bottom: 12px; border-bottom: 2px solid #e8e0d5; display: flex; align-items: center; gap: 12px; }
+    .faq-section h2 .icon { font-size: 1.4rem; }
+    .faq-item { background: #fff; border-radius: 10px; margin-bottom: 10px; box-shadow: 0 1px 8px rgba(0,0,0,.06); overflow: hidden; }
+    .faq-q { padding: 20px 24px; font-size: 1rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: sans-serif; user-select: none; }
+    .faq-q .toggle { width: 28px; height: 28px; border-radius: 50%; background: #f4efe6; color: #b5813a; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; transition: transform .3s; }
+    .faq-item.open .faq-q .toggle { transform: rotate(45deg); }
+    .faq-a { display: none; padding: 0 24px 20px; font-family: sans-serif; font-size: .92rem; color: #555; line-height: 1.75; border-top: 1px solid #f0ebe3; padding-top: 16px; }
+    .faq-item.open .faq-a { display: block; }
+    .faq-a strong { color: #2c2c2c; }
+    .faq-a ul { padding-left: 20px; margin-top: 8px; }
+    .faq-a ul li { margin-bottom: 4px; }
+
+    /* ── CONTACT SECTION ── */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .contact-card { background: #fff; border-radius: 12px; padding: 28px; box-shadow: 0 2px 12px rgba(0,0,0,.06); }
+    .contact-card h3 { font-size: 1.1rem; margin-bottom: 6px; }
+    .contact-card .sub { font-family: sans-serif; font-size: .82rem; color: #888; margin-bottom: 16px; }
+    .contact-card p { font-family: sans-serif; font-size: .88rem; color: #555; line-height: 1.7; }
+    .contact-card a { color: #b5813a; font-weight: 600; text-decoration: none; }
+    .contact-card .btn-contact { display: inline-block; margin-top: 14px; background: #b5813a; color: #fff; padding: 10px 22px; border-radius: 7px; font-family: sans-serif; font-size: .88rem; font-weight: 600; text-decoration: none; }
+
+    /* ── PRENOTA BAND ── */
+    .prenota-band { background: #f4efe6; padding: 64px 24px; text-align: center; }
+    .prenota-band h2 { font-size: 2rem; margin-bottom: 10px; }
+    .prenota-band p { font-family: sans-serif; color: #666; max-width: 500px; margin: 0 auto 28px; }
+    .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-gold { background: #b5813a; color: #fff; padding: 14px 32px; border-radius: 8px; font-family: sans-serif; font-weight: 600; text-decoration: none; font-size: 1rem; }
+    .btn-outline { border: 2px solid #b5813a; color: #b5813a; padding: 12px 30px; border-radius: 8px; font-family: sans-serif; font-weight: 600; text-decoration: none; font-size: 1rem; }
+
+    /* ── TRUST ── */
+    .trust-bar { background: #2c2c2c; color: #fff; padding: 24px; }
+    .trust-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: center; gap: 48px; flex-wrap: wrap; }
+    .trust-item { text-align: center; font-family: sans-serif; }
+    .trust-item .num { font-size: 1.5rem; font-weight: 700; color: #b5813a; }
+    .trust-item .lbl { font-size: .75rem; color: #aaa; }
+
+    /* ── CTA ── */
+    .cta-section { background: linear-gradient(135deg, #b5813a 0%, #9a6d30 100%); color: #fff; padding: 64px 24px; text-align: center; }
+    .cta-section h2 { font-size: 2rem; margin-bottom: 12px; }
+    .cta-section p { font-family: sans-serif; font-size: 1.05rem; margin-bottom: 28px; opacity: .9; }
+    .btn-white { background: #fff; color: #b5813a; padding: 14px 32px; border-radius: 8px; font-family: sans-serif; font-weight: 600; text-decoration: none; font-size: 1rem; }
+    .btn-outline-w { border: 2px solid #fff; color: #fff; padding: 12px 30px; border-radius: 8px; font-family: sans-serif; font-weight: 600; text-decoration: none; font-size: 1rem; }
+
+    /* ── FOOTER ── */
+    footer { background: #1e1e1e; color: #aaa; padding: 48px 24px 24px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 32px; }
+    .footer-brand .logo { font-size: 1.3rem; color: #b5813a; display: block; margin-bottom: 12px; text-decoration: none; }
+    .footer-brand p { font-size: .85rem; line-height: 1.6; }
+    footer h4 { color: #fff; font-size: .9rem; margin-bottom: 14px; font-family: sans-serif; }
+    footer ul { list-style: none; }
+    footer ul li { margin-bottom: 8px; }
+    footer ul li a { color: #aaa; text-decoration: none; font-size: .85rem; font-family: sans-serif; }
+    footer ul li a:hover { color: #b5813a; }
+    .footer-bottom { border-top: 1px solid #333; padding-top: 20px; text-align: center; font-size: .78rem; font-family: sans-serif; }
+
+    /* ── WA ── */
+    .wa-btn { position: fixed; bottom: 28px; right: 28px; background: #25d366; color: #fff; width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.5rem; box-shadow: 0 4px 16px rgba(37,211,102,.4); z-index: 999; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="home.html">Love Sun</a>
+    <ul class="nav-links">
+      <li>
+        <a href="#">Trattamenti ▾</a>
+        <div class="dropdown-menu">
+          <div class="has-submenu">
+            <a href="#">Estetica Base ▸</a>
+            <div class="submenu">
+              <a href="cerette.html">Cerette</a>
+              <a href="pedicure.html">Pedicure</a>
+              <a href="nail-center.html">Nail Center</a>
+              <a href="pulizia-viso.html">Pulizia Viso</a>
+              <a href="massaggi.html">Massaggi</a>
+            </div>
+          </div>
+          <a href="epilazione-laser.html">Epilazione Laser</a>
+          <a href="trattamenti-corpo.html">Trattamenti Corpo</a>
+          <a href="solarium.html">Solarium</a>
+        </div>
+      </li>
+      <li>
+        <a href="#">Le nostre Sedi ▾</a>
+        <div class="dropdown-menu">
+          <a href="sede-bregnano.html">Bregnano (CO)</a>
+          <a href="sede-carugate.html">Carugate (MI)</a>
+        </div>
+      </li>
+      <li><a href="offerte.html">Offerte</a></li>
+      <li><a href="chi-siamo.html">Chi Siamo</a></li>
+      <li><a href="faq.html" class="active">FAQ</a></li>
+      <li><a href="#prenota" class="nav-cta">Prenota</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wf-label">HERO — faq.html</div><br>
+  <h1>Domande frequenti</h1>
+  <p>Trova risposta alle domande più comuni. Se non trovi quello che cerchi, scrivici.</p>
+  <div class="hero-search">
+    <input type="text" placeholder="Cerca una domanda…">
+    <button>Cerca</button>
+  </div>
+</section>
+
+<!-- MAIN LAYOUT -->
+<div class="page-body">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <h3>Categorie</h3>
+    <ul class="sidebar-nav">
+      <li><a href="#prenotazioni" class="active">Prenotazioni</a></li>
+      <li><a href="#laser">Epilazione Laser</a></li>
+      <li><a href="#corpo">Trattamenti Corpo</a></li>
+      <li><a href="#solarium">Solarium</a></li>
+      <li><a href="#estetica">Estetica Base</a></li>
+      <li><a href="#pagamenti">Pagamenti &amp; Offerte</a></li>
+      <li><a href="#sedi">Le nostre Sedi</a></li>
+    </ul>
+    <div class="sidebar-contact">
+      <h4>Non hai trovato risposta?</h4>
+      <p>Siamo disponibili per risponderti:<br>
+        <a href="tel:031 4682567">031 4682567</a><br>
+        <a href="tel:347 3983337">347 3983337</a><br>
+        <a href="mailto:info@lovesun.it">info@lovesun.it</a>
+      </p>
+      <a class="wa-link" href="https://wa.me/393473983337">💬 Scrivici su WhatsApp</a>
+    </div>
+  </aside>
+
+  <!-- FAQ CONTENT -->
+  <main>
+
+    <!-- PRENOTAZIONI -->
+    <div class="faq-section" id="prenotazioni">
+      <div class="section-tag">sezione: faq-prenotazioni</div>
+      <h2><span class="icon">📅</span> Prenotazioni</h2>
+
+      <div class="faq-item open">
+        <div class="faq-q">Come posso prenotare un trattamento? <span class="toggle">+</span></div>
+        <div class="faq-a">
+          Puoi prenotare in tre modi:
+          <ul>
+            <li><strong>Online:</strong> compila il modulo su questa pagina o sulla pagina del trattamento che ti interessa.</li>
+            <li><strong>Telefono:</strong> chiama il <a href="tel:031 4682567" style="color:#b5813a">031 4682567</a> o il <a href="tel:347 3983337" style="color:#b5813a">347 3983337</a>.</li>
+            <li><strong>WhatsApp:</strong> scrivici al <a href="https://wa.me/393473983337" style="color:#b5813a">347 3983337</a>.</li>
+          </ul>
+          Ti ricontattiamo entro 24 ore per confermare data, ora e sede.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Posso prenotare per entrambe le sedi? <span class="toggle">+</span></div>
+        <div class="faq-a">Sì, puoi scegliere sia la sede di <strong>Bregnano (CO)</strong> che quella di <strong>Carugate (MI)</strong>. Basta indicarlo in fase di prenotazione. I cicli di trattamento possono essere distribuiti tra le due sedi in base alla tua disponibilità.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Come faccio a cancellare o spostare un appuntamento? <span class="toggle">+</span></div>
+        <div class="faq-a">Ti chiediamo di avvisarci almeno <strong>24 ore prima</strong> dell'appuntamento, così possiamo rendere disponibile lo slot ad altre clienti. Puoi cancellare o spostare telefonando o scrivendo su WhatsApp.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Devo pagare per prenotare? <span class="toggle">+</span></div>
+        <div class="faq-a">No, la prenotazione è gratuita e senza impegno. Il pagamento avviene direttamente in sede, dopo il trattamento.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Posso portare un'amica e prenotare insieme? <span class="toggle">+</span></div>
+        <div class="faq-a">Certo! Indicalo in fase di prenotazione nella sezione "Note". Faremo del nostro meglio per assegnarvi slot consecutivi o nella stessa fascia oraria.</div>
+      </div>
+    </div>
+
+    <!-- LASER -->
+    <div class="faq-section" id="laser">
+      <div class="section-tag">sezione: faq-laser</div>
+      <h2><span class="icon">✨</span> Epilazione Laser</h2>
+
+      <div class="faq-item">
+        <div class="faq-q">Quante sedute sono necessarie per l'epilazione laser? <span class="toggle">+</span></div>
+        <div class="faq-a">Il numero varia in base alla zona trattata, al fototipo e alla densità dei peli. In media si consigliano <strong>6–8 sedute</strong>, intervallate di 4–8 settimane, seguendo il ciclo di crescita del pelo. Durante la consulenza iniziale ti indicheremo il percorso personalizzato.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Che tecnologia usate per l'epilazione laser? <span class="toggle">+</span></div>
+        <div class="faq-a">Utilizziamo il laser <strong>EPILED 818</strong> a diodo 808nm con sistema di raffreddamento integrato. È la tecnologia più avanzata disponibile oggi per l'epilazione permanente: efficace, sicura e adatta a tutti i fototipi. Scopri di più sulla <a href="epilazione-laser.html" style="color:#b5813a">pagina dedicata</a>.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Fa male? Il laser è sicuro? <span class="toggle">+</span></div>
+        <div class="faq-a">La sensazione è simile a un leggero schiocco o pizzico. Il sistema di raffreddamento integrato del laser EPILED 818 riduce significativamente il fastidio. Il trattamento è sicuro se eseguito da personale qualificato, che valuterà sempre la compatibilità con il tuo fototipo e la storia cutanea.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Posso fare il laser se sono abbronzata? <span class="toggle">+</span></div>
+        <div class="faq-a"><strong>No</strong>, è necessario che la pelle non sia abbronzata. L'abbronzatura aumenta il rischio di effetti indesiderati. Ti consigliamo di evitare l'esposizione solare per almeno 4 settimane prima e dopo ogni seduta. Il trattamento laser è ideale nei mesi autunnali e invernali.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Quali zone si possono trattare? <span class="toggle">+</span></div>
+        <div class="faq-a">Trattiamo tutte le zone del corpo: gambe (intere o parziali), ascelle, inguine (brasiliana o integrale), labbro superiore, mento, braccia, schiena, addome, bikini. Durante la consulenza valutiamo insieme il piano più adatto.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">La differenza tra il laser EPILED 818 e la luce pulsata IPL? <span class="toggle">+</span></div>
+        <div class="faq-a">Il laser EPILED 818 è un laser a diodo a lunghezza d'onda precisa (808nm), molto più efficace e sicuro dell'IPL. La luce pulsata IPL è uno spettro di luce non coerente, meno preciso e con più controindicazioni. Il laser agisce direttamente sul follicolo senza danneggiare i tessuti circostanti.</div>
+      </div>
+    </div>
+
+    <!-- CORPO -->
+    <div class="faq-section" id="corpo">
+      <div class="section-tag">sezione: faq-corpo</div>
+      <h2><span class="icon">💆</span> Trattamenti Corpo</h2>
+
+      <div class="faq-item">
+        <div class="faq-q">Cos'è il T-Shape e come funziona? <span class="toggle">+</span></div>
+        <div class="faq-a">T-Shape è un macchinario multifunzione che combina quattro tecnologie: <strong>radiofrequenza, ultrasuoni ad alta intensità (HIFU), luce LED e drenaggio linfatico meccanico</strong>. Agisce su cellulite, rilassamento cutaneo e modellamento corporeo. I risultati si vedono dal primo ciclo di sedute. Leggi di più sulla <a href="trattamenti-corpo.html" style="color:#b5813a">pagina dedicata</a>.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Quante sedute servono per il T-Shape? <span class="toggle">+</span></div>
+        <div class="faq-a">Consigliamo cicli di <strong>5–10 sedute</strong>, una o due volte a settimana. I risultati sono progressivi e si stabilizzano dopo 4–6 settimane. È possibile ripetere i cicli nel corso dell'anno per mantenere i benefici.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">I trattamenti corpo sono dolorosi? <span class="toggle">+</span></div>
+        <div class="faq-a">No, i trattamenti corpo T-Shape sono indolori. Si avverte un leggero calore durante la radiofrequenza e una leggera pressione durante il drenaggio. La seduta è spesso percepita come un massaggio profondo.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Ci sono controindicazioni per i trattamenti corpo? <span class="toggle">+</span></div>
+        <div class="faq-a">Sì, alcune condizioni controindicano il trattamento: gravidanza, pacemaker, protesi metalliche nella zona da trattare, patologie vascolari gravi. Prima di iniziare, la nostra estetista raccoglierà le informazioni necessarie per valutare la tua idoneità.</div>
+      </div>
+    </div>
+
+    <!-- SOLARIUM -->
+    <div class="faq-section" id="solarium">
+      <div class="section-tag">sezione: faq-solarium</div>
+      <h2><span class="icon">☀️</span> Solarium</h2>
+
+      <div class="faq-item">
+        <div class="faq-q">Che apparecchi avete? <span class="toggle">+</span></div>
+        <div class="faq-a">
+          Disponiamo di 6 apparecchi tra le due sedi:
+          <ul>
+            <li><strong>Lampada viso quadrifacciale</strong> — entrambe le sedi, 13 min</li>
+            <li><strong>Lampada viso esafacciale</strong> — entrambe le sedi, 13 min</li>
+            <li><strong>Doccia STAND-UP bassa pressione</strong> — entrambe le sedi, 13 min</li>
+            <li><strong>Doccia V-400 alta pressione</strong> — entrambe le sedi, 13 min</li>
+            <li><strong>Lettino ERGOLINE bassa pressione</strong> — solo Bregnano, 15 min</li>
+            <li><strong>Lettino C-VENTI alta pressione</strong> — solo Carugate, 15 min</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Qual è la differenza tra bassa e alta pressione? <span class="toggle">+</span></div>
+        <div class="faq-a"><strong>Bassa pressione</strong>: lampade classiche, luce più soffusa, abbronzatura graduale e naturale. Durata sessione 13–15 min. <strong>Alta pressione</strong>: lampade più intense, risultato più rapido e duraturo, sessioni più brevi. Consigliamo l'alta pressione a chi è già abituato al solarium.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Quanto dura una sessione al solarium? <span class="toggle">+</span></div>
+        <div class="faq-a">Le docce e lampade viso durano <strong>13 minuti</strong>, i lettini <strong>15 minuti</strong>. La durata è regolata e certificata per la sicurezza delle nostre clienti, nel rispetto della normativa italiana sul solarium.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Con quale frequenza si può usare il solarium? <span class="toggle">+</span></div>
+        <div class="faq-a">Si consiglia un massimo di <strong>3 sessioni a settimana</strong>, con almeno un giorno di pausa tra una seduta e l'altra. La pelle ha bisogno di tempo per metabolizzare la melanina e rigenerarsi. Il nostro staff ti guiderà nel programma ottimale per il tuo fototipo.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Posso fare il solarium e l'epilazione laser nello stesso periodo? <span class="toggle">+</span></div>
+        <div class="faq-a"><strong>No</strong>. Prima di ogni seduta laser la pelle deve essere completamente priva di abbronzatura. Ti consigliamo di sospendere il solarium almeno <strong>4 settimane</strong> prima di iniziare il percorso laser, e di non abbronzarti per 4 settimane dopo ogni seduta.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Avete abbonamenti per il solarium? <span class="toggle">+</span></div>
+        <div class="faq-a">Sì! Offriamo pacchetti da 10 ingressi e abbonamenti mensili illimitati. Consulta la <a href="solarium.html" style="color:#b5813a">pagina Solarium</a> o le <a href="offerte.html" style="color:#b5813a">Offerte del Mese</a> per i prezzi aggiornati.</div>
+      </div>
+    </div>
+
+    <!-- ESTETICA BASE -->
+    <div class="faq-section" id="estetica">
+      <div class="section-tag">sezione: faq-estetica</div>
+      <h2><span class="icon">💅</span> Estetica Base</h2>
+
+      <div class="faq-item">
+        <div class="faq-q">Che tipo di cerette usate? <span class="toggle">+</span></div>
+        <div class="faq-a">Utilizziamo <strong>cera liposolubile</strong> per le zone più delicate (inguine, ascelle) e <strong>cera elastica</strong> per le zone più ampie (gambe, braccia). La scelta dipende dalla zona e dalla sensibilità della pelle. Le nostre estetiste valutano ogni cliente individualmente.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Con quale frequenza fare le cerette? <span class="toggle">+</span></div>
+        <div class="faq-a">Consigliamo ogni <strong>3–5 settimane</strong> per ottenere i risultati migliori. La ceretta rimuove il pelo dalla radice, rallentandone la ricrescita nel tempo. Con il passare delle sedute i peli diventano più sottili e radi.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Quali trattamenti viso offrite? <span class="toggle">+</span></div>
+        <div class="faq-a">Offriamo pulizia viso profonda, trattamento purificante per pelle grassa, trattamento idratante intensivo e trattamento anti-età. Tutti i trattamenti includono una fase di analisi della pelle, detersione, esfoliazione, estratti e maschera finale.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">La ricostruzione unghie dura quanto? <span class="toggle">+</span></div>
+        <div class="faq-a">La ricostruzione in gel o acrilico dura in media <strong>3–4 settimane</strong> prima del refill. Il semipermanente dura <strong>2–3 settimane</strong>. La durata dipende dalla crescita delle unghie e dalla cura quotidiana.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Offrite massaggi sportivi? <span class="toggle">+</span></div>
+        <div class="faq-a">Offriamo massaggi <strong>rilassanti</strong> (muscolatura superficiale, decompressione), <strong>decontratturanti</strong> (tensioni profonde, ideale per chi pratica sport), <strong>drenanti</strong> (ritenzione idrica, gambe pesanti) e <strong>localizzati</strong> (schiena, collo, gambe). Il massaggio decontratturante è molto richiesto da chi fa attività fisica intensa.</div>
+      </div>
+    </div>
+
+    <!-- PAGAMENTI -->
+    <div class="faq-section" id="pagamenti">
+      <div class="section-tag">sezione: faq-pagamenti</div>
+      <h2><span class="icon">💳</span> Pagamenti &amp; Offerte</h2>
+
+      <div class="faq-item">
+        <div class="faq-q">Quali metodi di pagamento accettate? <span class="toggle">+</span></div>
+        <div class="faq-a">Accettiamo <strong>contanti, carte di credito/debito e bancomat</strong>. Il pagamento avviene sempre in sede dopo il trattamento. Non è richiesto alcun pagamento anticipato per la prenotazione.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Come funzionano le offerte del mese? <span class="toggle">+</span></div>
+        <div class="faq-a">Ogni mese pubblichiamo promozioni a tempo limitato sulla <a href="offerte.html" style="color:#b5813a">pagina Offerte</a>. Le offerte hanno una scadenza e posti disponibili limitati. Per usufruire di un'offerta basta prenotare indicando il pacchetto desiderato — il prezzo scontato viene applicato direttamente in sede.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">I prezzi indicati includono IVA? <span class="toggle">+</span></div>
+        <div class="faq-a">Sì, tutti i prezzi indicati sul sito e in sede sono <strong>IVA inclusa</strong>. Non ci sono costi nascosti.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Posso regalare un trattamento? <span class="toggle">+</span></div>
+        <div class="faq-a">Sì! Offriamo <strong>buoni regalo</strong> per qualsiasi importo o trattamento. Contattaci per telefono o WhatsApp e ti prepariamo un buono personalizzato. I buoni regalo non hanno scadenza.</div>
+      </div>
+    </div>
+
+    <!-- SEDI -->
+    <div class="faq-section" id="sedi">
+      <div class="section-tag">sezione: faq-sedi</div>
+      <h2><span class="icon">📍</span> Le nostre Sedi</h2>
+
+      <div class="faq-item">
+        <div class="faq-q">Dove si trovano le vostre sedi? <span class="toggle">+</span></div>
+        <div class="faq-a">
+          <ul>
+            <li><strong>Bregnano (CO):</strong> Via per Lazzate 7 — <a href="sede-bregnano.html" style="color:#b5813a">vedi dettagli e mappa</a></li>
+            <li><strong>Carugate (MI):</strong> Via del Ginestrino 16 — <a href="sede-carugate.html" style="color:#b5813a">vedi dettagli e mappa</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Quali sono gli orari di apertura? <span class="toggle">+</span></div>
+        <div class="faq-a">
+          <strong>Bregnano:</strong> Lun–Sab 9:00–21:00 | Dom 9:00–17:00<br><br>
+          <strong>Carugate:</strong> Mar/Mer/Ven/Sab 9:00–20:00 | Gio 9:00–21:00 | Lun e Dom: chiuso
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Tutti i trattamenti sono disponibili in entrambe le sedi? <span class="toggle">+</span></div>
+        <div class="faq-a">La maggior parte dei trattamenti è disponibile in entrambe le sedi. Alcune eccezioni riguardano gli apparecchi solarium (il Lettino ERGOLINE è solo a Bregnano, il Lettino C-VENTI solo a Carugate). Contattaci per verificare la disponibilità di un trattamento specifico nella sede di tua preferenza.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">È disponibile il parcheggio? <span class="toggle">+</span></div>
+        <div class="faq-a">
+          <strong>Bregnano:</strong> Parcheggio gratuito nelle vicinanze della sede in Via per Lazzate.<br>
+          <strong>Carugate:</strong> Parcheggio disponibile nella zona commerciale di Via del Ginestrino.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Come raggiungo la sede di Bregnano con i mezzi pubblici? <span class="toggle">+</span></div>
+        <div class="faq-a">Prendi un treno <strong>Trenord</strong> in direzione Como e scendi alla stazione di <strong>Lomazzo</strong>. Da lì puoi proseguire con gli autobus <strong>C160, C184 o Z160</strong> fino a Bregnano. Scendi alla fermata <strong>Via Garibaldi</strong> e raggiungi Via per Lazzate 7 con una passeggiata di circa 7 minuti.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Come raggiungo la sede di Carugate con i mezzi pubblici? <span class="toggle">+</span></div>
+        <div class="faq-a">Da Milano, prendi la <strong>Metro M2 (Linea Verde)</strong> fino alla fermata <strong>Villa Fiorita</strong> o <strong>Cologno Nord</strong>. Da lì prosegui con l'autobus <strong>Z305</strong> in direzione Carugate e scendi alla fermata <strong>Via Ginestrino</strong> oppure <strong>Via Asiago / Monte Grappa</strong>. La sede di Via del Ginestrino 16 è raggiungibile con una passeggiata di circa 5–6 minuti.</div>
+      </div>
+    </div>
+
+    <!-- CONTATTI -->
+    <div class="faq-section">
+      <div class="section-tag">sezione: faq-contatti</div>
+      <h2><span class="icon">📞</span> Non hai trovato risposta?</h2>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>Chiama o scrivi</h3>
+          <p class="sub">Risposta entro 24 ore</p>
+          <p>
+            <a href="tel:031 4682567">031 4682567</a><br>
+            <a href="tel:347 3983337">347 3983337</a><br>
+            <a href="mailto:info@lovesun.it">info@lovesun.it</a>
+          </p>
+          <a href="mailto:info@lovesun.it" class="btn-contact">Invia un'email</a>
+        </div>
+        <div class="contact-card">
+          <h3>WhatsApp</h3>
+          <p class="sub">Il modo più rapido per scriverci</p>
+          <p>Inviaci un messaggio su WhatsApp al numero <strong>347 3983337</strong>. Rispondiamo di solito entro pochi minuti durante l'orario di apertura.</p>
+          <a href="https://wa.me/393473983337" class="btn-contact" style="background:#25d366;">💬 Scrivi su WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- PRENOTA -->
+<div class="prenota-band" id="prenota">
+  <div class="section-tag">sezione: prenota-cta</div>
+  <h2>Pronto a prenotare?</h2>
+  <p>Scegli il trattamento che ti interessa e ti ricontattiamo entro 24 ore.</p>
+  <div class="cta-btns">
+    <a href="home.html#prenota" class="btn-gold">Prenota online</a>
+    <a href="https://wa.me/393473983337" class="btn-outline">WhatsApp</a>
+  </div>
+</div>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-item"><div class="num">2</div><div class="lbl">Sedi</div></div>
+    <div class="trust-item"><div class="num">419</div><div class="lbl">Recensioni</div></div>
+    <div class="trust-item"><div class="num">4.9★</div><div class="lbl">Media Treatwell</div></div>
+    <div class="trust-item"><div class="num">10+</div><div class="lbl">Servizi</div></div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <h2>Hai ancora dubbi? Chiamaci.</h2>
+  <p>Il nostro team è qui per aiutarti a scegliere il trattamento più adatto a te.</p>
+  <div class="cta-btns">
+    <a href="tel:031 4682567" class="btn-white">031 4682567</a>
+    <a href="https://wa.me/393473983337" class="btn-outline-w">WhatsApp</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a class="logo" href="home.html">Love Sun</a>
+      <p>Centro estetico e solarium con due sedi in provincia di Como e Milano. Bellezza, benessere e professionalità dal 2010.</p>
+    </div>
+    <div>
+      <h4>Trattamenti</h4>
+      <ul>
+        <li><a href="epilazione-laser.html">Epilazione Laser</a></li>
+        <li><a href="trattamenti-corpo.html">Trattamenti Corpo</a></li>
+        <li><a href="solarium.html">Solarium</a></li>
+        <li><a href="cerette.html">Cerette</a></li>
+        <li><a href="massaggi.html">Massaggi</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Le nostre Sedi</h4>
+      <ul>
+        <li><a href="sede-bregnano.html">Bregnano (CO)</a></li>
+        <li><a href="sede-carugate.html">Carugate (MI)</a></li>
+      </ul>
+      <h4 style="margin-top:20px">Info</h4>
+      <ul>
+        <li><a href="chi-siamo.html">Chi Siamo</a></li>
+        <li><a href="offerte.html">Offerte</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contatti</h4>
+      <ul>
+        <li><a href="tel:031 4682567">031 4682567</a></li>
+        <li><a href="tel:347 3983337">347 3983337</a></li>
+        <li><a href="mailto:info@lovesun.it">info@lovesun.it</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Love Sun — P.IVA 02961440133 — <a href="#" style="color:#aaa">Privacy Policy</a></div>
+</footer>
+
+<!-- WhatsApp -->
+<a class="wa-btn" href="https://wa.me/393473983337" target="_blank" title="Scrivici su WhatsApp">💬</a>
+
+<script>
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      item.classList.toggle('open');
+    });
+  });
+</script>
+
+</body>
+</html>
