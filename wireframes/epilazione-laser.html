@@ -130,6 +130,22 @@
     .btn-pacchetto { width: 100%; padding: 12px; border-radius: 8px; font-size: 14px; font-weight: 700; cursor: pointer; border: 2px solid #222; background: transparent; color: #222; }
     .pacchetto-card.featured .btn-pacchetto { background: #222; color: #fff; }
 
+    /* HERO BOOKING */
+    .hero-booking { display: grid; grid-template-columns: 1fr 380px; gap: 48px; align-items: center; max-width: 1200px; margin: 0 auto; padding: 80px 40px; }
+    .hero-text-col {}
+    .hero-booking-card { background: #fff; border-radius: 14px; padding: 28px; box-shadow: 0 8px 40px rgba(0,0,0,.18); }
+    .hbc-title { font-size: 16px; font-weight: 700; color: #111; margin-bottom: 4px; }
+    .hbc-sub { font-size: 12px; color: #888; margin-bottom: 18px; }
+    .hbc-field { margin-bottom: 12px; }
+    .hbc-field label { display: block; font-size: 11px; font-weight: 700; color: #777; margin-bottom: 5px; letter-spacing: .05em; text-transform: uppercase; }
+    .hbc-field input, .hbc-field select { width: 100%; background: #f5f5f5; border: 1.5px solid #e8e8e8; border-radius: 8px; padding: 10px 12px; font-size: 13px; color: #333; }
+    .hbc-btn-primary { width: 100%; padding: 13px; background: #222; color: #fff; border: none; border-radius: 8px; font-size: 14px; font-weight: 700; cursor: pointer; margin-top: 4px; }
+    .hbc-divider { display: flex; align-items: center; gap: 8px; color: #ccc; font-size: 11px; margin: 12px 0; }
+    .hbc-divider::before, .hbc-divider::after { content: ''; flex: 1; height: 1px; background: #e8e8e8; }
+    .hbc-channels { display: flex; gap: 8px; }
+    .hbc-wa { flex: 1; padding: 10px; background: #25d366; color: #fff; border: none; border-radius: 8px; font-size: 13px; font-weight: 700; cursor: pointer; text-align: center; }
+    .hbc-tw { flex: 1; padding: 10px; background: #00b67a; color: #fff; border: none; border-radius: 8px; font-size: 13px; font-weight: 700; cursor: pointer; text-align: center; }
+
     /* FORM + TREATWELL */
     .prenota-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 32px; align-items: start; }
     .form-box { background: #fff; border: 1.5px solid #e0e0e0; border-radius: 12px; padding: 32px; }
@@ -154,6 +170,12 @@
     .tw-channels { display: flex; flex-direction: column; gap: 10px; }
     .btn-wa { display: block; width: 100%; padding: 12px; background: #25d366; color: #fff; border: none; border-radius: 8px; font-size: 14px; font-weight: 700; cursor: pointer; text-align: center; }
     .btn-tel { display: block; width: 100%; padding: 12px; background: transparent; color: #222; border: 1.5px solid #ddd; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; text-align: center; }
+
+    /* HERO BG */
+    .hero { background: #d0d0d0; min-height: 600px; position: relative; display: block; }
+    .hero-bg-label { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+    .hero-bg-label-inner { border: 2px dashed rgba(255,255,255,.4); border-radius: 10px; padding: 12px 24px; color: rgba(255,255,255,.6); font-size: 12px; font-weight: 600; text-align: center; }
+    .hero-overlay-dark { position: absolute; inset: 0; background: rgba(0,0,0,.45); }
 
     /* TRUST BAR */
     .trust-bar { background: #fff; border-top: 1px solid #e8e8e8; border-bottom: 1px solid #e8e8e8; padding: 28px 40px; }
@@ -225,21 +247,77 @@
 
 <!-- ══ HERO ══ -->
 <div class="hero">
-  <div class="hero-img-hint">
-    <div style="color:#aaa; font-size:13px; font-weight:600; text-align:center; border:2px dashed #bbb; border-radius:8px; padding:24px 40px;">
-      📷 IMMAGINE HERO<br><span style="font-size:11px;font-weight:400;">Trattamento laser in corso<br>Ambiente professionale e rassicurante</span>
-    </div>
+  <!-- Placeholder immagine di sfondo -->
+  <div class="hero-bg-label">
+    <div class="hero-bg-label-inner">📷 IMMAGINE SFONDO — Trattamento laser in corso<br>Full-width, alta qualità, atmosfera professionale</div>
   </div>
-  <div class="hero-content">
-    <div class="wf-label">H1</div>
-    <h1 class="wf">Epilazione Laser<br>Definitiva e Indolore</h1>
-    <div class="wf-label" style="margin-top:12px;">H2</div>
-    <p class="wf">Tecnologia EPILED 818 — laser a diodo di nuova generazione per risultati duraturi su tutti i fototipi, anche su pelle abbronzata.</p>
-    <div class="cta-group">
-      <button class="btn-lg-primary">📅 Prenota Ora</button>
-      <button class="btn-lg-secondary">Consulenza Gratuita</button>
+  <!-- Overlay scuro per leggibilità testo -->
+  <div class="hero-overlay-dark"></div>
+
+  <!-- Contenuto hero sopra l'overlay -->
+  <div class="hero-booking" style="position:relative; z-index:2;">
+
+    <!-- Colonna sinistra — testo -->
+    <div class="hero-text-col">
+      <div class="wf-label" style="color:rgba(255,255,255,.5);">H1</div>
+      <h1 class="wf" style="color:#fff; font-size:42px;">Epilazione Laser<br>Definitiva e Indolore</h1>
+      <div class="wf-label" style="margin-top:16px; color:rgba(255,255,255,.5);">H2</div>
+      <p class="wf" style="color:rgba(255,255,255,.85); font-size:17px;">Tecnologia EPILED 818 — laser a diodo di nuova generazione per risultati duraturi su tutti i fototipi, anche su pelle abbronzata.</p>
+      <div style="display:flex; gap:16px; margin-top:18px; flex-wrap:wrap;">
+        <div style="display:flex; align-items:center; gap:6px; color:rgba(255,255,255,.8); font-size:14px; font-weight:600;">✓ Totalmente indolore</div>
+        <div style="display:flex; align-items:center; gap:6px; color:rgba(255,255,255,.8); font-size:14px; font-weight:600;">✓ Tutti i fototipi</div>
+        <div style="display:flex; align-items:center; gap:6px; color:rgba(255,255,255,.8); font-size:14px; font-weight:600;">✓ Risultati duraturi</div>
+      </div>
+      <div style="margin-top:20px; display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.25); border-radius:20px; padding:6px 16px;">
+        <span style="color:#f0c000; font-size:14px;">★★★★★</span>
+        <span style="font-size:13px; color:#fff; font-weight:600;">4,9/5 su Treatwell · 419 recensioni</span>
+      </div>
     </div>
-    <div class="hero-badge">✓ Indolore &nbsp;·&nbsp; ✓ Tutti i fototipi &nbsp;·&nbsp; ✓ Risultati duraturi</div>
+
+    <!-- Colonna destra — card prenotazione -->
+    <div class="hero-booking-card">
+      <div class="hbc-title">📅 Prenota o richiedi informazioni</div>
+      <div class="hbc-sub">Consulenza gratuita · Risposta entro poche ore</div>
+
+      <div class="hbc-field">
+        <label>Nome e Cognome</label>
+        <input type="text" placeholder="Es. Maria Rossi">
+      </div>
+      <div class="hbc-field">
+        <label>Telefono / WhatsApp</label>
+        <input type="text" placeholder="Es. 333 123 4567">
+      </div>
+      <div class="hbc-field">
+        <label>Sede preferita</label>
+        <select>
+          <option>-- Seleziona --</option>
+          <option>Love Sun Bregnano (CO)</option>
+          <option>Love Sun Carugate (MI)</option>
+        </select>
+      </div>
+      <div class="hbc-field">
+        <label>Area da trattare</label>
+        <select>
+          <option>-- Seleziona --</option>
+          <option>Ascelle</option>
+          <option>Gambe complete</option>
+          <option>Inguine / Brasiliana</option>
+          <option>Labbro superiore</option>
+          <option>Total body</option>
+          <option>Altro / Più aree</option>
+        </select>
+      </div>
+
+      <button class="hbc-btn-primary">Invia Richiesta →</button>
+
+      <div class="hbc-divider">oppure prenota subito</div>
+
+      <div class="hbc-channels">
+        <button class="hbc-tw">📅 Treatwell</button>
+        <button class="hbc-wa">💬 WhatsApp</button>
+      </div>
+    </div>
+
   </div>
 </div>
 <div class="section-divider">SEZIONE 2 — PROBLEMA / SOLUZIONE</div>
@@ -426,32 +504,7 @@
     </section>
   </div>
 </div>
-<div class="section-divider">SEZIONE 7 — PRIMA / DOPO</div>
-
-<!-- ══ PRIMA / DOPO ══ -->
-<div class="bg-light section-full">
-  <div>
-    <section style="padding:60px 0;">
-      <div class="section-tag">Risultati</div>
-      <div class="wf-label">H2</div>
-      <h2 class="wf">I risultati parlano da soli</h2>
-      <p class="wf">Immagini reali delle nostre clienti, condivise con il consenso. I risultati possono variare in base al fototipo e all'area trattata.</p>
-
-      <div class="prima-dopo">
-        <div class="pd-card">
-          <div class="pd-img wf-placeholder">📷 FOTO PRIMA<br><span style="font-size:10px; font-weight:400;">Gambe — Prima del trattamento</span></div>
-          <div class="pd-label">Prima — Gambe Complete</div>
-        </div>
-        <div class="pd-card">
-          <div class="pd-img wf-placeholder">📷 FOTO DOPO<br><span style="font-size:10px; font-weight:400;">Gambe — Dopo 6 sedute</span></div>
-          <div class="pd-label">Dopo 6 sedute — Riduzione 90%</div>
-        </div>
-      </div>
-      <div class="wf-note" style="margin-top:16px;">Le foto prima/dopo sono da raccogliere dal centro · Aggiungere consenso scritto delle clienti</div>
-    </section>
-  </div>
-</div>
-<div class="section-divider">SEZIONE 8 — FAQ</div>
+<div class="section-divider">SEZIONE 7 — FAQ</div>
 
 <!-- ══ FAQ ══ -->
 <div class="bg-white section-full">
@@ -487,6 +540,31 @@
           <div class="faq-answer">Prima: non cerare né decolorare il pelo nelle settimane precedenti (il rasoio è ok). Evitare l'esposizione solare intensa. Dopo: applicare crema lenitiva, evitare il sole diretto e il calore per 24–48 ore. Il nostro team ti fornirà tutte le indicazioni dettagliate.</div>
         </div>
       </div>
+    </section>
+  </div>
+</div>
+<div class="section-divider">SEZIONE 8 — PRIMA / DOPO</div>
+
+<!-- ══ PRIMA / DOPO ══ -->
+<div class="bg-light section-full">
+  <div>
+    <section style="padding:60px 0;">
+      <div class="section-tag">Risultati</div>
+      <div class="wf-label">H2</div>
+      <h2 class="wf">I risultati parlano da soli</h2>
+      <p class="wf">Immagini reali delle nostre clienti, condivise con il consenso. I risultati possono variare in base al fototipo e all'area trattata.</p>
+
+      <div class="prima-dopo">
+        <div class="pd-card">
+          <div class="pd-img wf-placeholder">📷 FOTO PRIMA<br><span style="font-size:10px; font-weight:400;">Gambe — Prima del trattamento</span></div>
+          <div class="pd-label">Prima — Gambe Complete</div>
+        </div>
+        <div class="pd-card">
+          <div class="pd-img wf-placeholder">📷 FOTO DOPO<br><span style="font-size:10px; font-weight:400;">Gambe — Dopo 6 sedute</span></div>
+          <div class="pd-label">Dopo 6 sedute — Riduzione 90%</div>
+        </div>
+      </div>
+      <div class="wf-note" style="margin-top:16px;">Le foto prima/dopo sono da raccogliere dal centro · Aggiungere consenso scritto delle clienti</div>
     </section>
   </div>
 </div>
