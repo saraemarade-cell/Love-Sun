@@ -88,7 +88,7 @@
     .dropdown-menu {
       display: none;
       position: absolute;
-      top: calc(100% + 16px);
+      top: calc(100% + 8px);
       left: -20px;
       background: #fff;
       border: 1.5px solid #e0e0e0;
@@ -97,6 +97,14 @@
       min-width: 240px;
       z-index: 999;
       padding: 8px 0;
+    }
+    .dropdown-menu::before {
+      content: '';
+      position: absolute;
+      top: -12px;
+      left: 0;
+      right: 0;
+      height: 12px;
     }
     .nav-dropdown:hover .dropdown-menu,
     .nav-dropdown.open .dropdown-menu { display: block; }
