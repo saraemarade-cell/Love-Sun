@@ -114,6 +114,48 @@
     .faq-item.open .faq-arrow { transform: rotate(180deg); }
 
     /* TRUST BAR */
+    /* PACCHETTI */
+    .pacchetti-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 32px; }
+    .pacchetto-card { background: #fff; border: 1.5px solid #e0e0e0; border-radius: 12px; padding: 28px; position: relative; display: flex; flex-direction: column; }
+    .pacchetto-card.featured { border-color: #222; border-width: 2px; }
+    .pacchetto-badge { position: absolute; top: -1px; left: 50%; transform: translateX(-50%); background: #222; color: #fff; font-size: 11px; font-weight: 700; padding: 4px 16px; border-radius: 0 0 8px 8px; letter-spacing: .05em; white-space: nowrap; }
+    .pacchetto-nome { font-size: 18px; font-weight: 800; color: #111; margin-bottom: 6px; }
+    .pacchetto-desc { font-size: 13px; color: #777; margin-bottom: 18px; }
+    .pacchetto-prezzo { font-size: 28px; font-weight: 800; color: #111; margin-bottom: 4px; }
+    .pacchetto-prezzo-old { font-size: 14px; color: #bbb; text-decoration: line-through; margin-bottom: 16px; }
+    .pacchetto-features { list-style: none; padding: 0; margin-bottom: 24px; flex: 1; }
+    .pacchetto-features li { font-size: 13px; color: #444; padding: 6px 0; border-bottom: 1px solid #f0f0f0; display: flex; gap: 8px; }
+    .pacchetto-features li::before { content: "✓"; color: #27ae60; font-weight: 700; flex-shrink: 0; }
+    .pacchetto-features li:last-child { border-bottom: none; }
+    .btn-pacchetto { width: 100%; padding: 12px; border-radius: 8px; font-size: 14px; font-weight: 700; cursor: pointer; border: 2px solid #222; background: transparent; color: #222; }
+    .pacchetto-card.featured .btn-pacchetto { background: #222; color: #fff; }
+
+    /* FORM + TREATWELL */
+    .prenota-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 32px; align-items: start; }
+    .form-box { background: #fff; border: 1.5px solid #e0e0e0; border-radius: 12px; padding: 32px; }
+    .form-title { font-size: 18px; font-weight: 700; color: #111; margin-bottom: 6px; }
+    .form-sub { font-size: 13px; color: #888; margin-bottom: 24px; }
+    .form-field { margin-bottom: 16px; }
+    .form-field label { display: block; font-size: 12px; font-weight: 700; color: #555; margin-bottom: 6px; letter-spacing: .05em; text-transform: uppercase; }
+    .form-field input, .form-field select, .form-field textarea { width: 100%; background: #f5f5f5; border: 1.5px solid #e0e0e0; border-radius: 8px; padding: 11px 14px; font-size: 14px; color: #333; }
+    .form-field textarea { height: 90px; resize: none; }
+    .form-field select { appearance: none; }
+    .btn-form { width: 100%; padding: 14px; background: #222; color: #fff; border: none; border-radius: 8px; font-size: 15px; font-weight: 700; cursor: pointer; margin-top: 8px; }
+    .form-privacy { font-size: 11px; color: #aaa; margin-top: 10px; text-align: center; }
+    .treatwell-box { background: #fff; border: 1.5px solid #e0e0e0; border-radius: 12px; padding: 32px; display: flex; flex-direction: column; gap: 20px; }
+    .tw-header { display: flex; align-items: center; gap: 14px; }
+    .tw-logo { background: #00b67a; color: #fff; font-size: 13px; font-weight: 800; padding: 8px 16px; border-radius: 8px; flex-shrink: 0; }
+    .tw-rating { font-size: 13px; color: #555; }
+    .tw-stars { color: #f0c000; font-size: 16px; }
+    .tw-desc { font-size: 14px; color: #555; line-height: 1.6; }
+    .btn-treatwell { display: block; width: 100%; padding: 14px; background: #00b67a; color: #fff; border: none; border-radius: 8px; font-size: 15px; font-weight: 700; cursor: pointer; text-align: center; }
+    .tw-divider { display: flex; align-items: center; gap: 10px; color: #ccc; font-size: 12px; }
+    .tw-divider::before, .tw-divider::after { content: ''; flex: 1; height: 1px; background: #e0e0e0; }
+    .tw-channels { display: flex; flex-direction: column; gap: 10px; }
+    .btn-wa { display: block; width: 100%; padding: 12px; background: #25d366; color: #fff; border: none; border-radius: 8px; font-size: 14px; font-weight: 700; cursor: pointer; text-align: center; }
+    .btn-tel { display: block; width: 100%; padding: 12px; background: transparent; color: #222; border: 1.5px solid #ddd; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; text-align: center; }
+
+    /* TRUST BAR */
     .trust-bar { background: #fff; border-top: 1px solid #e8e8e8; border-bottom: 1px solid #e8e8e8; padding: 28px 40px; }
     .trust-bar-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
     .trust-icon { font-size: 24px; margin-bottom: 6px; }
@@ -448,7 +490,153 @@
     </section>
   </div>
 </div>
-<div class="section-divider">SEZIONE 9 — TRUST BAR</div>
+<div class="section-divider">SEZIONE 9 — PACCHETTI</div>
+
+<!-- ══ PACCHETTI ══ -->
+<div class="bg-light section-full">
+  <div>
+    <section style="padding:60px 0;">
+      <div class="section-tag">Formule e Pacchetti</div>
+      <div class="wf-label">H2</div>
+      <h2 class="wf">Scegli il pacchetto più adatto a te</h2>
+      <p class="wf">Risparmi di più scegliendo un pacchetto. Tutti i pacchetti includono la consulenza gratuita iniziale.</p>
+
+      <div class="pacchetti-grid">
+
+        <div class="pacchetto-card">
+          <div class="pacchetto-nome">Singola Seduta</div>
+          <div class="pacchetto-desc">Per iniziare o completare il percorso</div>
+          <div class="pacchetto-prezzo">[Prezzo]</div>
+          <div class="pacchetto-prezzo-old">per area / seduta</div>
+          <ul class="pacchetto-features">
+            <li>1 seduta su area a scelta</li>
+            <li>Consulenza iniziale gratuita</li>
+            <li>Protocollo pre/post incluso</li>
+          </ul>
+          <button class="btn-pacchetto">Prenota la Seduta</button>
+        </div>
+
+        <div class="pacchetto-card featured">
+          <div class="pacchetto-badge">⭐ Più scelto</div>
+          <div class="pacchetto-nome">Pacchetto 6 Sedute</div>
+          <div class="pacchetto-desc">Il percorso completo per risultati duraturi</div>
+          <div class="pacchetto-prezzo">[Prezzo]</div>
+          <div class="pacchetto-prezzo-old">invece di [prezzo singole]</div>
+          <ul class="pacchetto-features">
+            <li>6 sedute su area a scelta</li>
+            <li>Consulenza iniziale gratuita</li>
+            <li>Piano personalizzato seduta per seduta</li>
+            <li>Protocollo pre/post incluso</li>
+            <li>Seduta di controllo finale</li>
+          </ul>
+          <button class="btn-pacchetto">Prenota il Pacchetto</button>
+        </div>
+
+        <div class="pacchetto-card">
+          <div class="pacchetto-nome">Total Body</div>
+          <div class="pacchetto-desc">Per chi vuole trattare più aree in un unico percorso</div>
+          <div class="pacchetto-prezzo">[Prezzo]</div>
+          <div class="pacchetto-prezzo-old">invece di [prezzo singole aree]</div>
+          <ul class="pacchetto-features">
+            <li>Aree multiple a scelta</li>
+            <li>6–8 sedute per area</li>
+            <li>Consulenza iniziale gratuita</li>
+            <li>Piano personalizzato completo</li>
+            <li>Massimo risparmio</li>
+          </ul>
+          <button class="btn-pacchetto">Richiedi Preventivo</button>
+        </div>
+
+      </div>
+      <div class="wf-note" style="margin-top:20px;">I prezzi reali sono da inserire dal centro · Valutare se pubblicarli online o rimandare a richiesta preventivo</div>
+    </section>
+  </div>
+</div>
+<div class="section-divider">SEZIONE 10 — PRENOTA</div>
+
+<!-- ══ PRENOTA: FORM + TREATWELL ══ -->
+<div class="bg-white section-full">
+  <div>
+    <section style="padding:60px 0;">
+      <div class="section-tag">Prenota</div>
+      <div class="wf-label">H2</div>
+      <h2 class="wf">Prenota la tua seduta o richiedi informazioni</h2>
+      <p class="wf">Scegli come preferisci: prenota direttamente online oppure scrivici per qualsiasi domanda.</p>
+
+      <div class="prenota-grid">
+
+        <!-- FORM CONTATTO -->
+        <div class="form-box">
+          <div class="form-title">💬 Richiedi informazioni o consulenza</div>
+          <div class="form-sub">Risponderemo entro poche ore. Consulenza gratuita e senza impegno.</div>
+
+          <div class="form-field">
+            <label>Nome e Cognome *</label>
+            <input type="text" placeholder="Es. Maria Rossi">
+          </div>
+          <div class="form-field">
+            <label>Telefono o WhatsApp *</label>
+            <input type="text" placeholder="Es. 333 123 4567">
+          </div>
+          <div class="form-field">
+            <label>Sede preferita</label>
+            <select>
+              <option>-- Seleziona --</option>
+              <option>Love Sun Bregnano</option>
+              <option>Love Sun Carugate</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label>Area da trattare</label>
+            <select>
+              <option>-- Seleziona --</option>
+              <option>Ascelle</option>
+              <option>Gambe complete</option>
+              <option>Inguine / Brasiliana</option>
+              <option>Labbro superiore</option>
+              <option>Total body</option>
+              <option>Altro / Più aree</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label>Messaggio (opzionale)</label>
+            <textarea placeholder="Scrivi qui eventuali domande o preferenze di orario..."></textarea>
+          </div>
+
+          <button class="btn-form">Invia Richiesta →</button>
+          <div class="form-privacy">Inviando accetti la nostra <u>Privacy Policy</u>. I tuoi dati non saranno condivisi con terzi.</div>
+        </div>
+
+        <!-- TREATWELL + ALTRI CANALI -->
+        <div style="display:flex; flex-direction:column; gap:20px;">
+
+          <div class="treatwell-box">
+            <div class="tw-header">
+              <div class="tw-logo">treatwell</div>
+              <div class="tw-rating">
+                <div class="tw-stars">★★★★★</div>
+                <div style="font-size:13px; color:#555; margin-top:2px;"><strong>4,9/5</strong> · 419 recensioni</div>
+              </div>
+            </div>
+            <div class="tw-desc">Prenota online in pochi clic. Scegli la sede, il giorno e l'orario che preferisci. Disponibilità in tempo reale.</div>
+            <button class="btn-treatwell">📅 Prenota su Treatwell</button>
+          </div>
+
+          <div class="treatwell-box">
+            <div class="form-title" style="font-size:16px;">Preferisci contattarci direttamente?</div>
+            <div class="tw-channels">
+              <button class="btn-wa">💬 Scrivici su WhatsApp</button>
+              <button class="btn-tel">📞 Chiama Bregnano — 031-4682567</button>
+              <button class="btn-tel">📞 Chiama Carugate — 02-7709-5069</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+<div class="section-divider">SEZIONE 11 — TRUST BAR</div>
 
 <!-- ══ TRUST BAR ══ -->
 <div class="trust-bar">
@@ -475,7 +663,7 @@
     </div>
   </div>
 </div>
-<div class="section-divider">SEZIONE 10 — CTA FINALE</div>
+<div class="section-divider">SEZIONE 12 — CTA FINALE</div>
 
 <!-- ══ CTA FINALE ══ -->
 <div class="cta-finale-bg">
