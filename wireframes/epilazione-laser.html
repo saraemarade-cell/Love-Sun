@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wireframe — Epilazione Laser | Love Sun</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f0f0f0; color: #222; }
+
+    .wf-label { font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #999; margin-bottom: 6px; }
+    .wf-note { display: inline-block; background: #fffbe6; border: 1px dashed #f0c000; border-radius: 4px; font-size: 11px; color: #856404; padding: 3px 8px; margin-top: 6px; }
+    .wf-placeholder { background: #d9d9d9; border: 2px dashed #bbb; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #888; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; }
+    .section-tag { display: inline-block; background: #222; color: #fff; font-size: 10px; font-weight: 700; letter-spacing: .1em; padding: 3px 10px; border-radius: 3px; margin-bottom: 20px; }
+    .section-divider { background: #e8e8e8; text-align: center; padding: 6px; font-size: 10px; font-weight: 700; letter-spacing: .12em; color: #999; text-transform: uppercase; }
+
+    h1.wf { font-size: 36px; font-weight: 800; line-height: 1.2; color: #111; margin-bottom: 16px; }
+    h2.wf { font-size: 26px; font-weight: 700; color: #111; margin-bottom: 10px; }
+    h3.wf { font-size: 16px; font-weight: 700; color: #222; margin-bottom: 6px; }
+    p.wf  { font-size: 15px; color: #555; line-height: 1.6; margin-bottom: 16px; }
+
+    /* HEADER */
+    header { position: sticky; top: 0; z-index: 100; background: #fff; border-bottom: 2px solid #e0e0e0; padding: 14px 40px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .header-logo { background: #d9d9d9; border: 2px dashed #bbb; border-radius: 4px; width: 120px; height: 36px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #888; font-weight: 700; flex-shrink: 0; }
+    nav { display: flex; gap: 24px; font-size: 14px; font-weight: 500; color: #444; align-items: center; }
+    nav span { cursor: pointer; border-bottom: 1px dashed #bbb; padding-bottom: 2px; }
+    .nav-dropdown { position: relative; }
+    .nav-dropdown > span { display: flex; align-items: center; gap: 4px; }
+    .dropdown-menu { display: none; position: absolute; top: calc(100% + 16px); left: -20px; background: #fff; border: 1.5px solid #e0e0e0; border-radius: 10px; box-shadow: 0 8px 32px rgba(0,0,0,.1); min-width: 240px; z-index: 999; padding: 8px 0; }
+    .nav-dropdown:hover .dropdown-menu, .nav-dropdown.open .dropdown-menu { display: block; }
+    .dropdown-menu a { display: flex; align-items: center; gap: 10px; padding: 10px 20px; font-size: 14px; color: #222; text-decoration: none; font-weight: 500; }
+    .dropdown-menu a:hover { background: #f5f5f5; }
+    .dropdown-menu a.active { background: #f0f0f0; font-weight: 700; }
+    .dm-icon { font-size: 16px; width: 22px; text-align: center; }
+    .dropdown-divider { height: 1px; background: #f0f0f0; margin: 6px 0; }
+    .header-actions { display: flex; gap: 10px; align-items: center; flex-shrink: 0; }
+    .btn-ghost { border: 1.5px solid #999; background: transparent; border-radius: 6px; padding: 7px 14px; font-size: 13px; font-weight: 500; color: #444; cursor: pointer; }
+    .btn-primary { background: #222; color: #fff; border: none; border-radius: 6px; padding: 8px 18px; font-size: 13px; font-weight: 700; cursor: pointer; }
+
+    /* BREADCRUMB */
+    .breadcrumb { background: #fff; border-bottom: 1px solid #eee; padding: 10px 40px; font-size: 13px; color: #999; }
+    .breadcrumb a { color: #999; text-decoration: none; }
+    .breadcrumb a:hover { color: #222; }
+    .breadcrumb span { margin: 0 6px; }
+
+    /* HERO */
+    .hero { background: #d0d0d0; min-height: 440px; display: flex; align-items: center; position: relative; }
+    .hero-content { max-width: 620px; margin: 60px; background: rgba(255,255,255,.93); border-radius: 10px; padding: 44px 48px; border: 2px dashed #bbb; position: relative; z-index: 1; }
+    .hero-img-hint { position: absolute; inset: 0; display: flex; align-items: center; justify-content: flex-end; padding-right: 80px; }
+    .cta-group { display: flex; gap: 14px; margin-top: 22px; flex-wrap: wrap; }
+    .btn-lg-primary { background: #222; color: #fff; border: none; border-radius: 8px; padding: 14px 28px; font-size: 15px; font-weight: 700; cursor: pointer; }
+    .btn-lg-secondary { background: transparent; color: #222; border: 2px solid #222; border-radius: 8px; padding: 13px 28px; font-size: 15px; font-weight: 600; cursor: pointer; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: #fff; border: 1.5px solid #ddd; border-radius: 20px; padding: 5px 14px; font-size: 13px; font-weight: 600; color: #333; margin-top: 16px; }
+
+    /* SEZIONI */
+    section { padding: 60px 40px; max-width: 1200px; margin: 0 auto; }
+    .section-full { width: 100%; padding: 60px 40px; }
+    .section-full > div { max-width: 1200px; margin: 0 auto; }
+    .bg-light { background: #fafafa; }
+    .bg-white { background: #fff; }
+    .bg-dark { background: #111; color: #fff; }
+
+    /* PROBLEMA / SOLUZIONE */
+    .prob-sol-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 32px; }
+    .prob-box { background: #fff3f3; border: 1.5px solid #f5c6c6; border-radius: 10px; padding: 28px; }
+    .sol-box  { background: #f0fff4; border: 1.5px solid #b2dfdb; border-radius: 10px; padding: 28px; }
+    .box-label { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 14px; }
+    .prob-box .box-label { color: #c0392b; }
+    .sol-box  .box-label { color: #27ae60; }
+    .prob-list, .sol-list { list-style: none; padding: 0; }
+    .prob-list li { padding: 7px 0; border-bottom: 1px solid #f5c6c6; font-size: 14px; color: #444; display: flex; gap: 8px; }
+    .prob-list li::before { content: "✗"; color: #c0392b; font-weight: 700; flex-shrink: 0; }
+    .sol-list li { padding: 7px 0; border-bottom: 1px solid #b2dfdb; font-size: 14px; color: #444; display: flex; gap: 8px; }
+    .sol-list li::before { content: "✓"; color: #27ae60; font-weight: 700; flex-shrink: 0; }
+    .prob-list li:last-child, .sol-list li:last-child { border-bottom: none; }
+
+    /* TECH BOX */
+    .tech-box { background: #fff; border: 1.5px solid #e0e0e0; border-radius: 10px; padding: 32px; margin-top: 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    .tech-detail h3.wf { font-size: 15px; }
+    .tech-badge { display: inline-block; background: #111; color: #fff; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; margin-bottom: 12px; letter-spacing: .05em; }
+
+    /* BENEFICI */
+    .benefici-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 32px; }
+    .beneficio-card { background: #fff; border: 1.5px solid #e0e0e0; border-radius: 10px; padding: 24px; text-align: center; }
+    .beneficio-icon { font-size: 32px; margin-bottom: 12px; }
+
+    /* COME FUNZIONA */
+    .steps { display: flex; gap: 0; margin-top: 32px; position: relative; }
+    .steps::before { content: ''; position: absolute; top: 28px; left: 28px; right: 28px; height: 2px; background: #e0e0e0; z-index: 0; }
+    .step { flex: 1; text-align: center; position: relative; z-index: 1; padding: 0 12px; }
+    .step-num { width: 56px; height: 56px; background: #222; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; margin: 0 auto 16px; }
+    .step-title { font-size: 14px; font-weight: 700; color: #111; margin-bottom: 6px; }
+    .step-desc { font-size: 13px; color: #666; line-height: 1.5; }
+
+    /* AREE TRATTABILI */
+    .aree-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 28px; }
+    .area-pill { background: #fff; border: 1.5px solid #e0e0e0; border-radius: 8px; padding: 12px 16px; font-size: 14px; font-weight: 500; color: #333; display: flex; align-items: center; gap: 8px; }
+    .area-pill span { font-size: 18px; }
+
+    /* PRIMA/DOPO */
+    .prima-dopo { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 32px; }
+    .pd-card { background: #fff; border: 1.5px solid #e0e0e0; border-radius: 10px; overflow: hidden; }
+    .pd-img { height: 200px; }
+    .pd-label { padding: 14px 18px; font-size: 13px; font-weight: 700; color: #111; }
+
+    /* FAQ */
+    .faq-list { margin-top: 28px; display: flex; flex-direction: column; gap: 10px; }
+    .faq-item { background: #fff; border: 1.5px solid #e0e0e0; border-radius: 10px; overflow: hidden; }
+    .faq-question { display: flex; justify-content: space-between; align-items: center; padding: 16px 22px; font-size: 15px; font-weight: 600; color: #111; cursor: pointer; }
+    .faq-question:hover { background: #f8f8f8; }
+    .faq-arrow { font-size: 16px; color: #aaa; transition: transform .2s; flex-shrink: 0; }
+    .faq-answer { display: none; padding: 0 22px 16px; font-size: 14px; color: #555; line-height: 1.7; border-top: 1px solid #f0f0f0; }
+    .faq-item.open .faq-answer { display: block; }
+    .faq-item.open .faq-arrow { transform: rotate(180deg); }
+
+    /* TRUST BAR */
+    .trust-bar { background: #fff; border-top: 1px solid #e8e8e8; border-bottom: 1px solid #e8e8e8; padding: 28px 40px; }
+    .trust-bar-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
+    .trust-icon { font-size: 24px; margin-bottom: 6px; }
+    .trust-title { font-size: 14px; font-weight: 700; color: #111; margin-bottom: 3px; }
+    .trust-sub { font-size: 12px; color: #777; }
+
+    /* CTA FINALE */
+    .cta-finale-bg { background: #111; color: #fff; padding: 72px 40px; text-align: center; }
+    .cta-finale-bg h2.wf { color: #fff; font-size: 30px; margin-bottom: 12px; }
+    .cta-finale-bg p.wf { color: #bbb; max-width: 520px; margin: 0 auto 36px; }
+    .cta-finale-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-finale-primary { background: #fff; color: #111; border: none; border-radius: 8px; padding: 14px 28px; font-size: 15px; font-weight: 700; cursor: pointer; }
+    .btn-finale-secondary { background: transparent; color: #fff; border: 2px solid #fff; border-radius: 8px; padding: 13px 28px; font-size: 15px; font-weight: 600; cursor: pointer; }
+
+    /* FOOTER */
+    footer { background: #1a1a1a; color: #aaa; padding: 48px 40px 24px; }
+    .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+    .footer-col-title { color: #fff; font-size: 13px; font-weight: 700; margin-bottom: 14px; letter-spacing: .05em; text-transform: uppercase; }
+    .footer-col p, .footer-col a { font-size: 13px; color: #999; line-height: 2; display: block; text-decoration: none; }
+    .footer-logo { background: #333; border: 2px dashed #555; border-radius: 4px; width: 100px; height: 32px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #777; font-weight: 700; margin-bottom: 16px; }
+    .footer-tagline { font-size: 13px; color: #777; margin-bottom: 16px; line-height: 1.5; }
+    .footer-social { display: flex; gap: 12px; margin-top: 8px; }
+    .social-icon { background: #333; border-radius: 6px; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+    .footer-bottom { max-width: 1200px; margin: 0 auto; border-top: 1px solid #333; padding-top: 20px; font-size: 12px; color: #666; display: flex; justify-content: space-between; }
+
+    .wa-float { position: fixed; bottom: 28px; right: 28px; background: #25d366; color: #fff; border-radius: 50%; width: 54px; height: 54px; display: flex; align-items: center; justify-content: center; font-size: 26px; box-shadow: 0 4px 16px rgba(0,0,0,.2); cursor: pointer; z-index: 200; }
+  </style>
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<header>
+  <div class="header-logo">LOGO LOVE SUN</div>
+  <nav>
+    <div class="nav-dropdown" onclick="this.classList.toggle('open')">
+      <span>Servizi ▾</span>
+      <div class="dropdown-menu">
+        <a href="epilazione-laser.html" class="active"><span class="dm-icon">✨</span> Epilazione Laser</a>
+        <a href="#"><span class="dm-icon">💆</span> Trattamenti Corpo & T-Shape</a>
+        <div class="dropdown-divider"></div>
+        <a href="#"><span class="dm-icon">💅</span> Nail Center</a>
+        <a href="#"><span class="dm-icon">☀️</span> Solarium</a>
+        <div class="dropdown-divider"></div>
+        <a href="#"><span class="dm-icon">🌿</span> Cerette</a>
+        <a href="#"><span class="dm-icon">🦶</span> Pedicure</a>
+        <a href="#"><span class="dm-icon">🫧</span> Pulizia Viso</a>
+        <a href="#"><span class="dm-icon">🤲</span> Massaggi</a>
+      </div>
+    </div>
+    <span>Offerte</span>
+    <span>Le nostre Sedi</span>
+    <span>Chi Siamo</span>
+    <span><a href="faq.html" style="color:inherit;text-decoration:none;">FAQ</a></span>
+    <span>Contatti</span>
+  </nav>
+  <div class="header-actions">
+    <button class="btn-ghost">📞 Chiama</button>
+    <button class="btn-ghost">💬 WhatsApp</button>
+    <button class="btn-primary">Prenota Ora</button>
+  </div>
+</header>
+
+<!-- ══ BREADCRUMB ══ -->
+<div class="breadcrumb">
+  <a href="home.html">Home</a> <span>›</span>
+  <a href="#">Servizi</a> <span>›</span>
+  Epilazione Laser
+</div>
+<div class="section-divider">SEZIONE 1 — HERO</div>
+
+<!-- ══ HERO ══ -->
+<div class="hero">
+  <div class="hero-img-hint">
+    <div style="color:#aaa; font-size:13px; font-weight:600; text-align:center; border:2px dashed #bbb; border-radius:8px; padding:24px 40px;">
+      📷 IMMAGINE HERO<br><span style="font-size:11px;font-weight:400;">Trattamento laser in corso<br>Ambiente professionale e rassicurante</span>
+    </div>
+  </div>
+  <div class="hero-content">
+    <div class="wf-label">H1</div>
+    <h1 class="wf">Epilazione Laser<br>Definitiva e Indolore</h1>
+    <div class="wf-label" style="margin-top:12px;">H2</div>
+    <p class="wf">Tecnologia EPILED 818 — laser a diodo di nuova generazione per risultati duraturi su tutti i fototipi, anche su pelle abbronzata.</p>
+    <div class="cta-group">
+      <button class="btn-lg-primary">📅 Prenota Ora</button>
+      <button class="btn-lg-secondary">Consulenza Gratuita</button>
+    </div>
+    <div class="hero-badge">✓ Indolore &nbsp;·&nbsp; ✓ Tutti i fototipi &nbsp;·&nbsp; ✓ Risultati duraturi</div>
+  </div>
+</div>
+<div class="section-divider">SEZIONE 2 — PROBLEMA / SOLUZIONE</div>
+
+<!-- ══ PROBLEMA / SOLUZIONE ══ -->
+<div class="bg-white section-full">
+  <div>
+    <section style="padding:60px 0;">
+      <div class="section-tag">Perché scegliere il laser</div>
+      <div class="wf-label">H2</div>
+      <h2 class="wf">Smettila di sprecare tempo con metodi temporanei</h2>
+
+      <div class="prob-sol-grid">
+        <div class="prob-box">
+          <div class="box-label">Il problema — Metodi tradizionali</div>
+          <ul class="prob-list">
+            <li>Risultati temporanei: il pelo ricresce ogni 2–4 settimane</li>
+            <li>Dolore e irritazioni cutanee frequenti</li>
+            <li>Peli incarniti e follicoliti</li>
+            <li>Costo e tempo che si accumulano nel tempo</li>
+            <li>Non adatto a tutte le aree del corpo</li>
+          </ul>
+        </div>
+        <div class="sol-box">
+          <div class="box-label">La soluzione — Epilazione Laser EPILED 818</div>
+          <ul class="sol-list">
+            <li>Riduzione permanente del pelo dopo poche sedute</li>
+            <li>Trattamento veloce, sicuro e totalmente indolore</li>
+            <li>Nessun pelo incarnito o irritazione post-trattamento</li>
+            <li>Investimento che si ammortizza nel tempo</li>
+            <li>Adatto a tutto il corpo e a tutti i fototipi</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+<div class="section-divider">SEZIONE 3 — TECNOLOGIA</div>
+
+<!-- ══ TECNOLOGIA ══ -->
+<div class="bg-light section-full">
+  <div>
+    <section style="padding:60px 0;">
+      <div class="section-tag">La nostra tecnologia</div>
+      <div class="wf-label">H2</div>
+      <h2 class="wf">EPILED 818 — Laser a diodo di nuova generazione</h2>
+      <p class="wf">Non tutti i laser sono uguali. EPILED 818 è progettato per garantire la massima efficacia su ogni tipo di pelle, con il minimo disagio.</p>
+
+      <div class="tech-box">
+        <div class="tech-detail">
+          <div class="tech-badge">EPILED 818</div>
+          <div class="wf-label">H3</div>
+          <h3 class="wf">Come funziona la fototermolisi selettiva</h3>
+          <p class="wf" style="font-size:14px;">Un raggio di luce a 818 nm colpisce la melanina nei bulbi piliferi. Il calore generato distrugge le cellule germinative responsabili della ricrescita del pelo, senza danneggiare la pelle circostante.</p>
+          <p class="wf" style="font-size:14px;">Il controllo intelligente dell'energia garantisce sicurezza e precisione in ogni seduta.</p>
+        </div>
+        <div class="tech-detail">
+          <div class="wf-label">Differenziazione vs luce pulsata (IPL)</div>
+          <div style="display:flex; flex-direction:column; gap:12px; margin-top:8px;">
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; font-size:13px;">
+              <div style="background:#f5f5f5; border-radius:6px; padding:10px; text-align:center;">
+                <div style="font-weight:700; margin-bottom:4px; color:#111;">EPILED 818</div>
+                <div style="color:#27ae60; font-size:12px;">✓ Laser monocromatico<br>✓ Selettivo e preciso<br>✓ Funziona su abbronzati<br>✓ Tutti i fototipi<br>✓ Risultati più duraturi</div>
+              </div>
+              <div style="background:#f5f5f5; border-radius:6px; padding:10px; text-align:center;">
+                <div style="font-weight:700; margin-bottom:4px; color:#888;">IPL / Luce Pulsata</div>
+                <div style="color:#c0392b; font-size:12px;">✗ Luce a spettro largo<br>✗ Meno selettiva<br>✗ Non su pelle abbronzata<br>✗ Fototipi limitati<br>✗ Meno duratura</div>
+              </div>
+            </div>
+          </div>
+          <div class="wf-note" style="margin-top:14px;">Lunghezza d'onda: 818 nm · Fototermolisi selettiva</div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+<div class="section-divider">SEZIONE 4 — BENEFICI</div>
+
+<!-- ══ BENEFICI ══ -->
+<div class="bg-white section-full">
+  <div>
+    <section style="padding:60px 0;">
+      <div class="section-tag">Benefici</div>
+      <div class="wf-label">H2</div>
+      <h2 class="wf">Perché scegliere l'epilazione laser da Love Sun</h2>
+
+      <div class="benefici-grid">
+        <div class="beneficio-card">
+          <div class="beneficio-icon">🚫</div>
+          <h3 class="wf">Totalmente Indolore</h3>
+          <p class="wf" style="font-size:13px;">Nessun dolore. La sensazione percepita è un leggero tepore. Adatto anche alle pelli più sensibili.</p>
+        </div>
+        <div class="beneficio-card">
+          <div class="beneficio-icon">⚡</div>
+          <h3 class="wf">Trattamento Veloce</h3>
+          <p class="wf" style="font-size:13px;">Grazie alla tecnologia avanzata, ogni seduta richiede pochissimo tempo. Ascelle in 10 minuti, gambe complete in 45.</p>
+        </div>
+        <div class="beneficio-card">
+          <div class="beneficio-icon">🌙</div>
+          <h3 class="wf">Risultati Duraturi</h3>
+          <p class="wf" style="font-size:13px;">Riduzione permanente del pelo già dalle prime sedute. Dì addio al ciclo infinito di cerette e rasoio.</p>
+        </div>
+        <div class="beneficio-card">
+          <div class="beneficio-icon">🎨</div>
+          <h3 class="wf">Tutti i Fototipi</h3>
+          <p class="wf" style="font-size:13px;">Funziona su carnagioni chiare, scure e medie. Utilizzabile anche su pelle abbronzata.</p>
+        </div>
+        <div class="beneficio-card">
+          <div class="beneficio-icon">🛡️</div>
+          <h3 class="wf">Sicuro e Certificato</h3>
+          <p class="wf" style="font-size:13px;">Tecnologia certificata, utilizzata da professionisti qualificati in un ambiente controllato e sicuro.</p>
+        </div>
+        <div class="beneficio-card">
+          <div class="beneficio-icon">💆</div>
+          <h3 class="wf">Addio Peli Incarniti</h3>
+          <p class="wf" style="font-size:13px;">Nessuna follicoli, nessun pelo incarnito. La pelle rimane liscia e uniforme tra una seduta e l'altra.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+<div class="section-divider">SEZIONE 5 — COME FUNZIONA</div>
+
+<!-- ══ COME FUNZIONA ══ -->
+<div class="bg-light section-full">
+  <div>
+    <section style="padding:60px 0;">
+      <div class="section-tag">Il percorso</div>
+      <div class="wf-label">H2</div>
+      <h2 class="wf">Come funziona il trattamento</h2>
+      <p class="wf">Un percorso semplice, personalizzato e seguito passo dopo passo dal nostro team.</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-title">Consulenza Gratuita</div>
+          <div class="step-desc">Analizziamo fototipo, colore del pelo e area da trattare. Definiamo insieme il tuo programma personalizzato.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-title">Prima Seduta</div>
+          <div class="step-desc">Preparazione della pelle, applicazione del gel e trattamento con EPILED 818. Durata variabile per area.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-title">Sedute Successive</div>
+          <div class="step-desc">Una seduta ogni 4–8 settimane, in base alla fase di crescita del pelo. In media 6–8 sedute totali.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-title">Risultato</div>
+          <div class="step-desc">Riduzione permanente del pelo. Pelle liscia e libera tutto l'anno, senza dover pensarci più.</div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+<div class="section-divider">SEZIONE 6 — AREE TRATTABILI</div>
+
+<!-- ══ AREE TRATTABILI ══ -->
+<div class="bg-white section-full">
+  <div>
+    <section style="padding:60px 0;">
+      <div class="section-tag">Aree trattabili</div>
+      <div class="wf-label">H2</div>
+      <h2 class="wf">Dove possiamo trattarti</h2>
+      <p class="wf">Il laser EPILED 818 è adatto a quasi tutte le aree del corpo, per uomo e donna.</p>
+
+      <div class="aree-grid">
+        <div class="area-pill"><span>👄</span> Labbro Superiore</div>
+        <div class="area-pill"><span>😊</span> Mento e Guance</div>
+        <div class="area-pill"><span>🪒</span> Ascelle</div>
+        <div class="area-pill"><span>👙</span> Inguine / Brasiliana</div>
+        <div class="area-pill"><span>🦵</span> Gambe Complete</div>
+        <div class="area-pill"><span>🦵</span> Mezza Gamba</div>
+        <div class="area-pill"><span>💪</span> Braccia Complete</div>
+        <div class="area-pill"><span>🔙</span> Schiena (uomo)</div>
+        <div class="area-pill"><span>🫀</span> Petto (uomo)</div>
+        <div class="area-pill"><span>🦷</span> Collo</div>
+        <div class="area-pill"><span>🧖</span> Bikini Integrale</div>
+        <div class="area-pill"><span>✨</span> Personalizzabile</div>
+      </div>
+      <div class="wf-note" style="margin-top:20px;">Disponibilità aree da confermare con il centro · I prezzi variano per area</div>
+    </section>
+  </div>
+</div>
+<div class="section-divider">SEZIONE 7 — PRIMA / DOPO</div>
+
+<!-- ══ PRIMA / DOPO ══ -->
+<div class="bg-light section-full">
+  <div>
+    <section style="padding:60px 0;">
+      <div class="section-tag">Risultati</div>
+      <div class="wf-label">H2</div>
+      <h2 class="wf">I risultati parlano da soli</h2>
+      <p class="wf">Immagini reali delle nostre clienti, condivise con il consenso. I risultati possono variare in base al fototipo e all'area trattata.</p>
+
+      <div class="prima-dopo">
+        <div class="pd-card">
+          <div class="pd-img wf-placeholder">📷 FOTO PRIMA<br><span style="font-size:10px; font-weight:400;">Gambe — Prima del trattamento</span></div>
+          <div class="pd-label">Prima — Gambe Complete</div>
+        </div>
+        <div class="pd-card">
+          <div class="pd-img wf-placeholder">📷 FOTO DOPO<br><span style="font-size:10px; font-weight:400;">Gambe — Dopo 6 sedute</span></div>
+          <div class="pd-label">Dopo 6 sedute — Riduzione 90%</div>
+        </div>
+      </div>
+      <div class="wf-note" style="margin-top:16px;">Le foto prima/dopo sono da raccogliere dal centro · Aggiungere consenso scritto delle clienti</div>
+    </section>
+  </div>
+</div>
+<div class="section-divider">SEZIONE 8 — FAQ</div>
+
+<!-- ══ FAQ ══ -->
+<div class="bg-white section-full">
+  <div>
+    <section style="padding:60px 0;">
+      <div class="section-tag">Domande frequenti</div>
+      <div class="wf-label">H2</div>
+      <h2 class="wf">Le domande più comuni sull'epilazione laser</h2>
+
+      <div class="faq-list">
+        <div class="faq-item open">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Quante sedute servono? <span class="faq-arrow">▼</span></div>
+          <div class="faq-answer">In media 6–8 sedute, con intervalli di 4–8 settimane. Il numero esatto dipende dal fototipo, dal colore del pelo e dall'area trattata. Lo definiamo insieme durante la consulenza gratuita.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">L'epilazione laser fa male? <span class="faq-arrow">▼</span></div>
+          <div class="faq-answer">No. Con EPILED 818 il trattamento è totalmente indolore. La sensazione è un leggero tepore sulla pelle, molto lontano dal dolore della ceretta.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Posso farlo d'estate o con la pelle abbronzata? <span class="faq-arrow">▼</span></div>
+          <div class="faq-answer">Sì. A differenza della luce pulsata (IPL), il laser EPILED 818 è utilizzabile anche su pelle abbronzata e su tutti i fototipi. Contattaci per una valutazione personalizzata.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Quanto dura ogni seduta? <span class="faq-arrow">▼</span></div>
+          <div class="faq-answer">Dipende dall'area trattata. Ascelle: circa 10 minuti. Gambe complete: circa 40–45 minuti. Inguine: circa 15–20 minuti. Il trattamento è molto rapido grazie alla tecnologia avanzata.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Ci sono controindicazioni? <span class="faq-arrow">▼</span></div>
+          <div class="faq-answer">Alcune condizioni come gravidanza, assunzione di certi farmaci fotosensibilizzanti o patologie cutanee specifiche possono richiedere una valutazione preventiva. Durante la consulenza gratuita il nostro team effettuerà una valutazione completa.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">Cosa devo fare prima e dopo il trattamento? <span class="faq-arrow">▼</span></div>
+          <div class="faq-answer">Prima: non cerare né decolorare il pelo nelle settimane precedenti (il rasoio è ok). Evitare l'esposizione solare intensa. Dopo: applicare crema lenitiva, evitare il sole diretto e il calore per 24–48 ore. Il nostro team ti fornirà tutte le indicazioni dettagliate.</div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+<div class="section-divider">SEZIONE 9 — TRUST BAR</div>
+
+<!-- ══ TRUST BAR ══ -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <div>
+      <div class="trust-icon">⭐</div>
+      <div class="trust-title">4,9/5 su Treatwell</div>
+      <div class="trust-sub">419 recensioni verificate</div>
+    </div>
+    <div>
+      <div class="trust-icon">✨</div>
+      <div class="trust-title">EPILED 818</div>
+      <div class="trust-sub">Laser a diodo 818nm</div>
+    </div>
+    <div>
+      <div class="trust-icon">🎓</div>
+      <div class="trust-title">Team Qualificato</div>
+      <div class="trust-sub">Specialiste certificate</div>
+    </div>
+    <div>
+      <div class="trust-icon">💬</div>
+      <div class="trust-title">Consulenza Gratuita</div>
+      <div class="trust-sub">Senza impegno</div>
+    </div>
+  </div>
+</div>
+<div class="section-divider">SEZIONE 10 — CTA FINALE</div>
+
+<!-- ══ CTA FINALE ══ -->
+<div class="cta-finale-bg">
+  <div class="wf-label" style="color:#666;">H2</div>
+  <h2 class="wf">Inizia il tuo percorso di epilazione definitiva</h2>
+  <p class="wf">Prenota la tua prima seduta o richiedi una consulenza gratuita e senza impegno. Il nostro team è pronto ad accompagnarti.</p>
+  <div class="cta-finale-actions">
+    <button class="btn-finale-primary">📅 Prenota Ora</button>
+    <button class="btn-finale-secondary">💬 Consulenza Gratuita</button>
+    <button class="btn-finale-secondary">📞 Chiama Ora</button>
+  </div>
+</div>
+<div class="section-divider">FOOTER</div>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <div class="footer-logo">LOGO</div>
+      <p class="footer-tagline">Beauty Center. Bellezza e benessere in Lombardia.</p>
+      <div class="footer-social">
+        <div class="social-icon">f</div>
+        <div class="social-icon">📷</div>
+        <div class="social-icon">▶</div>
+      </div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Servizi</div>
+      <a href="epilazione-laser.html">Epilazione Laser</a>
+      <a href="#">Trattamenti Corpo & T-Shape</a>
+      <a href="#">Solarium</a>
+      <a href="#">Nail Center</a>
+      <a href="#">Cerette</a>
+      <a href="#">Pedicure</a>
+      <a href="#">Pulizia Viso</a>
+      <a href="#">Massaggi</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Love Sun Bregnano</div>
+      <p>Via per Lazzate 7<br>22070 Bregnano (CO)</p>
+      <p>031-4682567<br>+39 347 398 3337</p>
+      <p>Lun–Sab 08:30–21:00<br>Dom 09:00–15:00</p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Love Sun Carugate</div>
+      <p>Via del Ginestrino 16<br>20061 Carugate (MI)</p>
+      <p>02-7709-5069<br>WhatsApp 331-1093564</p>
+      <p>Mar–Ven 09:00–20:00<br>Sab 09:00–19:00</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Love Sun &nbsp;·&nbsp; Privacy Policy &nbsp;·&nbsp; Cookie Policy</span>
+    <span>P.IVA [da inserire]</span>
+  </div>
+</footer>
+
+<div class="wa-float">💬</div>
+
+</body>
+</html>
