@@ -274,6 +274,7 @@
         <li>Scade il 30 giugno 2026</li>
       </ul>
       <a href="contatti.html" style="text-decoration:none;"><button class="btn-dark">Prenota questa offerta</button></a>
+      <div class="wf-note" style="margin-top:14px; display:block;">⚙️ Questa card è popolata dall'offerta con flag <code>in_evidenza = true</code> nel CPT <code>ls_offerta</code>. Un'offerta alla volta.</div>
     </div>
     <div class="featured-img">
       <span style="font-size:32px;">📷</span>
@@ -412,6 +413,7 @@
 
   </div><!-- /offers-grid -->
   <div class="wf-note" style="margin-top:20px;">Le offerte vengono aggiornate ogni mese dall'admin — layout fisso, contenuti variabili</div>
+  <div class="wf-note" style="margin-top:8px; display:block;">⚙️ <strong>CPT WordPress — <code>ls_offerta</code>:</strong> ogni offerta è un Custom Post Type con campi: titolo, descrizione, immagine, prezzo_originale, prezzo_scontato, scadenza, badge (Nuovo / Posti limitati), sede (Entrambe / Bregnano / Carugate), categoria (taxonomy: Laser, Corpo, Viso, Solarium, Nail, Massaggi), in_evidenza (flag per la card featured). La Listing Grid Elementor filtra per <code>in_evidenza=true</code> e per categoria. Il centro aggiorna solo i CPT — nessuna modifica al template.</div>
 </div>
 <div class="section-divider">SEZIONE 3 — COME FUNZIONA</div>
 
@@ -503,6 +505,7 @@
 
   </div>
   <div class="wf-note" style="margin-top:20px;">Prezzi indicativi — da confermare con il titolare</div>
+  <div class="wf-note" style="margin-top:8px; display:block;">⚙️ <strong>CPT WordPress — <code>ls_abbonamento</code>:</strong> ogni abbonamento è un Custom Post Type con campi: nome, sottotitolo, prezzo, periodo, feature_list, in_evidenza (badge "Più scelto"). Modificabili dall'admin senza toccare Elementor.</div>
 </div>
 <div class="section-divider">SEZIONE 5 — FORM PRENOTA</div>
 
@@ -548,17 +551,13 @@
           <div>
             <label>Offerta richiesta</label>
             <select>
-              <option>Percorso Laser Completo</option>
-              <option>Pacchetto Sole 10+2</option>
-              <option>Ciclo 3 Massaggi</option>
-              <option>Pacchetto T-Shape 5 sedute</option>
-              <option>Percorso Viso 4 sedute</option>
-              <option>Ricostruzione + Semiperm. Pedicure</option>
-              <option>Cerette Estate — Corpo Completo</option>
-              <option>Abbonamento Essential</option>
-              <option>Abbonamento Benessere</option>
-              <option>Abbonamento Sun Only</option>
+              <option>[Offerta 1 — da CPT]</option>
+              <option>[Offerta 2 — da CPT]</option>
+              <option>[Offerta 3 — da CPT]</option>
+              <option>[Abbonamento 1 — da CPT]</option>
+              <option>[Abbonamento 2 — da CPT]</option>
             </select>
+            <div class="wf-note" style="margin-top:4px; display:block;">⚙️ Opzioni popolate dinamicamente dai CPT <code>ls_offerta</code> e <code>ls_abbonamento</code> — nessun hardcoding.</div>
           </div>
         </div>
         <div class="form-row full">
@@ -610,40 +609,45 @@
   </div>
 </div>
 
-<!-- ══ FOOTER ══ -->
+<!-- ════════════════════════════════════════ FOOTER ════════════════════════════════════════ -->
 <footer>
   <div class="footer-grid">
     <div class="footer-col">
       <div class="footer-logo">LOGO LOVE SUN BEAUTY</div>
-      <p class="footer-tagline">Centro estetico e solarium con due sedi in Lombardia. Bellezza, benessere e professionalità.</p>
+      <p class="footer-tagline">Beauty Center. Bellezza e benessere in Lombardia.</p>
+      <div class="footer-social">
+        <div class="social-icon" title="Facebook">f</div>
+        <div class="social-icon" title="Instagram">📷</div>
+        <div class="social-icon" title="TikTok">♪</div>
+      </div>
     </div>
     <div class="footer-col">
-      <div class="footer-col-title">Trattamenti</div>
+      <div class="footer-col-title">Servizi</div>
       <a href="epilazione-laser.html">Epilazione Laser</a>
-      <a href="trattamenti-corpo.html">Trattamenti Corpo</a>
+      <a href="trattamenti-corpo.html">Trattamenti Corpo &amp; T-Shape</a>
       <a href="solarium.html">Solarium</a>
+      <a href="nail-center.html">Nail Center</a>
       <a href="cerette.html">Cerette</a>
+      <a href="pedicure.html">Pedicure</a>
+      <a href="pulizia-viso.html">Pulizia Viso</a>
       <a href="massaggi.html">Massaggi</a>
     </div>
     <div class="footer-col">
-      <div class="footer-col-title">Le nostre Sedi</div>
-      <a href="sede-bregnano.html">Bregnano (CO)</a>
-      <a href="sede-carugate.html">Carugate (MI)</a>
-      <div class="footer-col-title" style="margin-top:20px;">Info</div>
-      <a href="chi-siamo.html">Chi Siamo</a>
-      <a href="offerte.html">Offerte</a>
-      <a href="faq.html">FAQ</a>
+      <div class="footer-col-title">Love Sun Beauty Bregnano</div>
+      <p>Via per Lazzate 7<br>22070 Bregnano (CO)</p>
+      <p>031 4682567<br>WhatsApp 347 3983337<br>info@lovesun.it</p>
+      <p>Lun–Sab 9:00–21:00<br>Dom 9:00–17:00</p>
     </div>
     <div class="footer-col">
-      <div class="footer-col-title">Contatti</div>
-      <a href="tel:031 4682567">031 4682567</a>
-      <a href="tel:347 3983337">347 3983337</a>
-      <a href="mailto:info@lovesun.it">info@lovesun.it</a>
+      <div class="footer-col-title">Love Sun Beauty Carugate</div>
+      <p>Via del Ginestrino 16<br>20061 Carugate (MI)</p>
+      <p>031 4682567<br>WhatsApp 347 3983337<br>info@lovesun.it</p>
+      <p>Mar/Mer/Ven/Sab 9:00–20:00<br>Gio 9:00–21:00<br>Lun e Dom: Chiuso</p>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 Love Sun Beauty — P.IVA 02961440133</span>
-    <span><a href="#" style="color:#666;">Privacy Policy</a></span>
+    <span>© 2026 Love Sun Beauty &nbsp;·&nbsp; Privacy Policy &nbsp;·&nbsp; Cookie Policy</span>
+    <span>P.IVA [da inserire]</span>
   </div>
 </footer>
 
