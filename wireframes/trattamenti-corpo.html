@@ -386,56 +386,71 @@
     </div>
 
     <!-- Box T-Shape 2 — servizio principale -->
-    <div style="background:#111; border-radius:20px; padding:40px;">
+    <div style="background:#111; border-radius:20px; overflow:hidden;">
 
-      <!-- Header servizio -->
-      <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:24px; flex-wrap:wrap; margin-bottom:28px;">
-        <div>
-          <div style="display:flex; gap:8px; margin-bottom:12px; flex-wrap:wrap;">
-            <span style="background:rgba(255,255,255,.12); color:#fff; font-size:10px; font-weight:700; padding:4px 12px; border-radius:20px; letter-spacing:.08em; text-transform:uppercase;">Estetica Avanzata</span>
-            <span style="background:rgba(255,255,255,.12); color:#fff; font-size:10px; font-weight:700; padding:4px 12px; border-radius:20px; letter-spacing:.08em; text-transform:uppercase;">FDA Approved</span>
-            <span style="background:rgba(255,255,255,.12); color:#fff; font-size:10px; font-weight:700; padding:4px 12px; border-radius:20px; letter-spacing:.08em; text-transform:uppercase;">Durata: 30 min</span>
+      <!-- Header: testo sx + immagine dx -->
+      <div style="display:grid; grid-template-columns:1fr 360px; min-height:340px;">
+
+        <!-- Testo -->
+        <div style="padding:40px; display:flex; flex-direction:column; justify-content:space-between; gap:28px;">
+          <div>
+            <div style="display:flex; gap:8px; margin-bottom:20px; flex-wrap:wrap;">
+              <span style="background:rgba(255,255,255,.12); color:#fff; font-size:10px; font-weight:700; padding:4px 12px; border-radius:20px; letter-spacing:.08em; text-transform:uppercase;">Estetica Avanzata</span>
+              <span style="background:#f0c000; color:#111; font-size:10px; font-weight:700; padding:4px 12px; border-radius:20px; letter-spacing:.08em; text-transform:uppercase;">FDA Approved</span>
+              <span style="background:rgba(255,255,255,.12); color:#fff; font-size:10px; font-weight:700; padding:4px 12px; border-radius:20px; letter-spacing:.08em; text-transform:uppercase;">⏱ 30 min · seduta</span>
+            </div>
+            <h3 style="font-size:32px; font-weight:800; color:#fff; margin-bottom:14px; line-height:1.15;">T-Shape 2</h3>
+            <p style="font-size:14px; color:rgba(255,255,255,.7); line-height:1.8; max-width:520px;">Dispositivo avanzato per il rimodellamento del corpo e il ringiovanimento del viso. Combina quattro tecnologie in un'unica unità per ridurre la cellulite, rassodare e levigare la pelle — senza interventi invasivi.</p>
           </div>
-          <h3 style="font-size:24px; font-weight:800; color:#fff; margin-bottom:10px;">T-Shape 2</h3>
-          <p style="font-size:14px; color:rgba(255,255,255,.75); max-width:640px; line-height:1.7;">Dispositivo avanzato per il rimodellamento del corpo e il ringiovanimento del viso. Combina quattro tecnologie in un'unica unità: <strong style="color:#fff;">Radiofrequenza Bipolare, Laser LLLT, Aspirazione Vacuum e Mesoporazione.</strong></p>
+          <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
+            <a href="contatti.html" style="text-decoration:none;"><button style="background:#fff; color:#111; border:none; border-radius:10px; padding:13px 28px; font-size:14px; font-weight:700; cursor:pointer;">Prenota una consulenza →</button></a>
+            <span style="font-size:12px; color:rgba(255,255,255,.4);">Prima consulenza gratuita</span>
+          </div>
         </div>
-        <a href="contatti.html" style="text-decoration:none; flex-shrink:0;"><button style="background:#fff; color:#111; border:none; border-radius:10px; padding:13px 28px; font-size:14px; font-weight:700; cursor:pointer; white-space:nowrap;">Info e prenotazioni →</button></a>
+
+        <!-- Immagine dispositivo -->
+        <div style="background:rgba(255,255,255,.06); border-left:1px solid rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center; flex-direction:column; gap:8px; color:rgba(255,255,255,.3); font-size:11px; font-weight:600; letter-spacing:.06em; text-transform:uppercase;">
+          <span style="font-size:36px;">📷</span>
+          <span>Foto dispositivo</span>
+          <span style="font-size:10px; color:rgba(255,255,255,.2);">360 × 340 px</span>
+        </div>
+
       </div>
 
       <!-- 4 tecnologie -->
-      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:28px;">
-        <div style="background:rgba(255,255,255,.07); border-radius:14px; padding:20px;">
-          <div style="font-size:22px; margin-bottom:8px;">📡</div>
-          <div style="font-size:13px; font-weight:700; color:#fff; margin-bottom:5px;">Radiofrequenza Bipolare</div>
-          <div style="font-size:12px; color:rgba(255,255,255,.55); line-height:1.5;">Genera calore nei tessuti connettivi, stimolando collagene ed elasticità. Contrasta rughe, smagliature e rilassamento cutaneo.</div>
+      <div style="border-top:1px solid rgba(255,255,255,.08); display:grid; grid-template-columns:repeat(4,1fr);">
+        <div style="padding:24px 24px; border-right:1px solid rgba(255,255,255,.08);">
+          <div style="font-size:26px; margin-bottom:10px;">📡</div>
+          <div style="font-size:12px; font-weight:700; color:#fff; margin-bottom:6px; letter-spacing:.02em;">Radiofrequenza Bipolare</div>
+          <div style="font-size:11px; color:rgba(255,255,255,.45); line-height:1.6;">Scalda i tessuti in profondità, stimola collagene e contrasta rilassamento cutaneo, rughe e smagliature.</div>
         </div>
-        <div style="background:rgba(255,255,255,.07); border-radius:14px; padding:20px;">
-          <div style="font-size:22px; margin-bottom:8px;">🔬</div>
-          <div style="font-size:13px; font-weight:700; color:#fff; margin-bottom:5px;">Laser LLLT</div>
-          <div style="font-size:12px; color:rgba(255,255,255,.55); line-height:1.5;">Favorisce la riduzione delle cellule adipose e migliora l'aspetto della pelle. Risultati visibili dalla prima seduta.</div>
+        <div style="padding:24px 24px; border-right:1px solid rgba(255,255,255,.08);">
+          <div style="font-size:26px; margin-bottom:10px;">🔬</div>
+          <div style="font-size:12px; font-weight:700; color:#fff; margin-bottom:6px; letter-spacing:.02em;">Laser LLLT</div>
+          <div style="font-size:11px; color:rgba(255,255,255,.45); line-height:1.6;">Riduce le cellule adipose e migliora l'aspetto della pelle. Risultati visibili già dalla prima seduta.</div>
         </div>
-        <div style="background:rgba(255,255,255,.07); border-radius:14px; padding:20px;">
-          <div style="font-size:22px; margin-bottom:8px;">💨</div>
-          <div style="font-size:13px; font-weight:700; color:#fff; margin-bottom:5px;">Aspirazione Vacuum</div>
-          <div style="font-size:12px; color:rgba(255,255,255,.55); line-height:1.5;">Aumenta la circolazione sanguigna e il drenaggio linfatico, riducendo gonfiore e volume localizzato.</div>
+        <div style="padding:24px 24px; border-right:1px solid rgba(255,255,255,.08);">
+          <div style="font-size:26px; margin-bottom:10px;">💨</div>
+          <div style="font-size:12px; font-weight:700; color:#fff; margin-bottom:6px; letter-spacing:.02em;">Aspirazione Vacuum</div>
+          <div style="font-size:11px; color:rgba(255,255,255,.45); line-height:1.6;">Attiva il drenaggio linfatico e la microcircolazione, riducendo gonfiore e accumuli localizzati.</div>
         </div>
-        <div style="background:rgba(255,255,255,.07); border-radius:14px; padding:20px;">
-          <div style="font-size:22px; margin-bottom:8px;">💉</div>
-          <div style="font-size:13px; font-weight:700; color:#fff; margin-bottom:5px;">Mesoporazione</div>
-          <div style="font-size:12px; color:rgba(255,255,255,.55); line-height:1.5;">Incrementa la permeabilità delle membrane cellulari per l'assorbimento dei principi attivi cosmetici.</div>
+        <div style="padding:24px 24px;">
+          <div style="font-size:26px; margin-bottom:10px;">💉</div>
+          <div style="font-size:12px; font-weight:700; color:#fff; margin-bottom:6px; letter-spacing:.02em;">Mesoporazione</div>
+          <div style="font-size:11px; color:rgba(255,255,255,.45); line-height:1.6;">Veicola principi attivi cosmetici in profondità, potenziando l'efficacia delle altre tecnologie.</div>
         </div>
       </div>
 
       <!-- Benefici T-Shape 2 -->
-      <div style="background:rgba(255,255,255,.05); border-radius:14px; padding:22px; margin-bottom:28px;">
-        <div style="font-size:12px; font-weight:700; color:rgba(255,255,255,.5); letter-spacing:.1em; text-transform:uppercase; margin-bottom:14px;">Benefici e risultati</div>
-        <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:10px;">
-          <div style="font-size:13px; color:rgba(255,255,255,.8); display:flex; gap:8px;"><span style="color:#27ae60; font-weight:700; flex-shrink:0;">✓</span>Riduzione visibile della cellulite</div>
-          <div style="font-size:13px; color:rgba(255,255,255,.8); display:flex; gap:8px;"><span style="color:#27ae60; font-weight:700; flex-shrink:0;">✓</span>Silhouette più snella, circonferenze ridotte</div>
-          <div style="font-size:13px; color:rgba(255,255,255,.8); display:flex; gap:8px;"><span style="color:#27ae60; font-weight:700; flex-shrink:0;">✓</span>Ringiovanimento del viso — effetto lifting</div>
-          <div style="font-size:13px; color:rgba(255,255,255,.8); display:flex; gap:8px;"><span style="color:#27ae60; font-weight:700; flex-shrink:0;">✓</span>Ottimo post-liposuzione</div>
-          <div style="font-size:13px; color:rgba(255,255,255,.8); display:flex; gap:8px;"><span style="color:#27ae60; font-weight:700; flex-shrink:0;">✓</span>Miglioramento del tono muscolare</div>
-          <div style="font-size:13px; color:rgba(255,255,255,.8); display:flex; gap:8px;"><span style="color:#27ae60; font-weight:700; flex-shrink:0;">✓</span>Non invasivo — nessun tempo di recupero</div>
+      <div style="border-top:1px solid rgba(255,255,255,.08); padding:24px 40px;">
+        <div style="font-size:10px; font-weight:700; color:rgba(255,255,255,.35); letter-spacing:.12em; text-transform:uppercase; margin-bottom:14px;">Risultati</div>
+        <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:8px;">
+          <div style="font-size:13px; color:rgba(255,255,255,.75); display:flex; gap:8px;"><span style="color:#27ae60; font-weight:700; flex-shrink:0;">✓</span>Riduzione visibile della cellulite</div>
+          <div style="font-size:13px; color:rgba(255,255,255,.75); display:flex; gap:8px;"><span style="color:#27ae60; font-weight:700; flex-shrink:0;">✓</span>Silhouette più snella, circonferenze ridotte</div>
+          <div style="font-size:13px; color:rgba(255,255,255,.75); display:flex; gap:8px;"><span style="color:#27ae60; font-weight:700; flex-shrink:0;">✓</span>Ringiovanimento viso — effetto lifting</div>
+          <div style="font-size:13px; color:rgba(255,255,255,.75); display:flex; gap:8px;"><span style="color:#27ae60; font-weight:700; flex-shrink:0;">✓</span>Ottimo post-liposuzione</div>
+          <div style="font-size:13px; color:rgba(255,255,255,.75); display:flex; gap:8px;"><span style="color:#27ae60; font-weight:700; flex-shrink:0;">✓</span>Tonificazione muscolare</div>
+          <div style="font-size:13px; color:rgba(255,255,255,.75); display:flex; gap:8px;"><span style="color:#27ae60; font-weight:700; flex-shrink:0;">✓</span>Non invasivo — rientro immediato</div>
         </div>
       </div>
 
