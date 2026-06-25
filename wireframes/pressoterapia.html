@@ -78,14 +78,21 @@
     .faq-item.open .faq-arrow { transform: rotate(180deg); }
 
     /* FORM */
-    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; margin-top: 32px; }
-    .form-card { background: #f8f8f8; border: 1.5px solid #e0e0e0; border-radius: 14px; padding: 32px; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 14px; }
-    .form-row.full { grid-template-columns: 1fr; }
-    .form-row label { display: block; font-size: 12px; font-weight: 600; color: #666; margin-bottom: 4px; }
-    .form-row input, .form-row select, .form-row textarea { width: 100%; padding: 10px 12px; border: 1.5px solid #ddd; border-radius: 7px; font-size: 14px; background: #fff; color: #222; }
-    .form-row textarea { height: 80px; resize: none; }
-    .btn-submit { width: 100%; background: #222; color: #fff; border: none; border-radius: 8px; padding: 14px; font-size: 15px; font-weight: 700; cursor: pointer; margin-top: 6px; }
+    .prenota-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 32px; align-items: start; }
+    .form-box { background: #fff; border: 1.5px solid #e0e0e0; border-radius: 12px; padding: 32px; }
+    .form-title { font-size: 18px; font-weight: 700; color: #111; margin-bottom: 6px; }
+    .form-sub { font-size: 13px; color: #888; margin-bottom: 24px; }
+    .form-field { margin-bottom: 16px; }
+    .form-field label { display: block; font-size: 12px; font-weight: 700; color: #555; margin-bottom: 6px; letter-spacing: .05em; text-transform: uppercase; }
+    .form-field input, .form-field select, .form-field textarea { width: 100%; background: #f5f5f5; border: 1.5px solid #e0e0e0; border-radius: 8px; padding: 11px 14px; font-size: 14px; color: #333; }
+    .form-field textarea { height: 90px; resize: none; }
+    .btn-form { width: 100%; padding: 14px; background: #222; color: #fff; border: none; border-radius: 8px; font-size: 15px; font-weight: 700; cursor: pointer; margin-top: 8px; }
+    .form-privacy { font-size: 11px; color: #aaa; margin-top: 10px; text-align: center; }
+    .treatwell-box { background: #fff; border: 1.5px solid #e0e0e0; border-radius: 12px; padding: 28px; display: flex; flex-direction: column; gap: 16px; }
+    .tw-stars { color: #f0c000; font-size: 16px; }
+    .btn-treatwell { width: 100%; padding: 12px; background: #00b67a; color: #fff; border: none; border-radius: 8px; font-size: 14px; font-weight: 700; cursor: pointer; }
+    .btn-wa { width: 100%; padding: 11px; background: #25d366; color: #fff; border: none; border-radius: 8px; font-size: 13px; font-weight: 700; cursor: pointer; margin-bottom: 8px; }
+    .btn-tel { width: 100%; padding: 11px; background: #f5f5f5; color: #222; border: 1.5px solid #ddd; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; margin-bottom: 8px; }
 
     /* TRUST BAR */
     .trust-bar { background: #fff; border-top: 1px solid #e8e8e8; border-bottom: 1px solid #e8e8e8; padding: 28px 40px; }
@@ -222,8 +229,12 @@
   <div style="max-width:1200px; margin:0 auto;">
     <section style="padding:72px 0;">
       <div class="section-tag">Il trattamento</div>
-      <h2 class="wf">Cos'è la Pressoterapia</h2>
-      <p class="wf" style="max-width:760px;">La pressoterapia è un trattamento estetico che utilizza pressione d'aria graduata per stimolare la circolazione linfatica e venosa. Attraverso un apposito indumento (tuta, gambale o bracciale), il dispositivo esercita una pressione sequenziale e progressiva che aiuta il corpo a eliminare i liquidi in eccesso, ridurre il gonfiore e contrastare la cellulite.</p>
+      <h2 class="wf">Cos'è il Pressomassaggio</h2>
+      <p class="wf" style="max-width:760px;">Il <strong>pressomassaggio</strong> è un innovativo trattamento estetico/curativo basato sulla pressione esterna degli arti, attraverso una specifica apparecchiatura dotata di speciali cuscinetti a getti d'aria discontinua che, indossati dal paziente e gonfiati in maniera sequenziale, aiutano a migliorare il tono e l'integrità della pelle, riducono la cellulite e ridefiniscono la forma delle gambe, oltre ad alleviare il dolore indotto da alcuni traumi sportivi.</p>
+      <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:32px;">
+        <span style="background:#f0f0f0; color:#444; font-size:12px; font-weight:700; padding:5px 14px; border-radius:20px;">⏱ Durata: 30 min</span>
+        <span style="background:#e8f5e9; color:#2e7d32; font-size:12px; font-weight:700; padding:5px 14px; border-radius:20px;">📍 Entrambe le sedi</span>
+      </div>
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px; margin-top:40px; align-items:center;">
         <div style="background:#111; border-radius:16px; padding:32px; display:flex; flex-direction:column; gap:20px;">
           <div>
@@ -258,27 +269,52 @@
     <section style="padding:72px 0;">
       <div class="section-tag">Benefici</div>
       <h2 class="wf">Cosa ottieni con la Pressoterapia</h2>
-      <p class="wf" style="max-width:760px;">Risultati visibili già dalla prima seduta. Un trattamento piacevole, non invasivo, adatto a chiunque.</p>
-      <div class="benefici-grid">
+      <p class="wf" style="max-width:760px;">Risultati visibili già dalla prima seduta. Un trattamento piacevole, non invasivo, adatto a chiunque — disponibile in entrambi i centri.</p>
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:32px;">
         <div class="beneficio-card">
-          <div class="beneficio-icon">💧</div>
-          <h3 class="wf" style="font-size:14px; margin-bottom:6px;">Drena i liquidi</h3>
-          <p class="wf" style="font-size:12px; color:#666;">Elimina i liquidi in eccesso responsabili di gonfiore e pesantezza agli arti inferiori.</p>
+          <div class="beneficio-icon">🔄</div>
+          <h3 class="wf" style="font-size:14px; margin-bottom:6px;">Circolazione migliorata</h3>
+          <p class="wf" style="font-size:12px; color:#666;">Migliora la circolazione sanguigna e quella linfatica, riducendo ristagni e pesantezza.</p>
         </div>
         <div class="beneficio-card">
-          <div class="beneficio-icon">🦵</div>
-          <h3 class="wf" style="font-size:14px; margin-bottom:6px;">Gambe leggere</h3>
-          <p class="wf" style="font-size:12px; color:#666;">Allevia la sensazione di gambe pesanti e caviglie gonfie, già dalla prima seduta.</p>
+          <div class="beneficio-icon">💧</div>
+          <h3 class="wf" style="font-size:14px; margin-bottom:6px;">Riduce gonfiore ed edema</h3>
+          <p class="wf" style="font-size:12px; color:#666;">Drena i liquidi in eccesso e riduce visibilmente il gonfiore agli arti inferiori.</p>
+        </div>
+        <div class="beneficio-card">
+          <div class="beneficio-icon">🛡️</div>
+          <h3 class="wf" style="font-size:14px; margin-bottom:6px;">Anti-infiammatorio</h3>
+          <p class="wf" style="font-size:12px; color:#666;">Riduce gli stati infiammatori di natura non-infettiva e favorisce la guarigione.</p>
+        </div>
+        <div class="beneficio-card">
+          <div class="beneficio-icon">✨</div>
+          <h3 class="wf" style="font-size:14px; margin-bottom:6px;">Ossigenazione cutanea</h3>
+          <p class="wf" style="font-size:12px; color:#666;">Migliora l'ossigenazione della cute e la rende più luminosa e tonica.</p>
         </div>
         <div class="beneficio-card">
           <div class="beneficio-icon">💪</div>
-          <h3 class="wf" style="font-size:14px; margin-bottom:6px;">Tonifica e rimodella</h3>
-          <p class="wf" style="font-size:12px; color:#666;">Migliora il tono della pelle e contribuisce a ridurre la cellulite con un'azione mirata.</p>
+          <h3 class="wf" style="font-size:14px; margin-bottom:6px;">Tono e integrità della pelle</h3>
+          <p class="wf" style="font-size:12px; color:#666;">Migliora il tono e l'integrità della pelle, rendendola più compatta ed elastica.</p>
         </div>
         <div class="beneficio-card">
-          <div class="beneficio-icon">🔄</div>
-          <h3 class="wf" style="font-size:14px; margin-bottom:6px;">Migliora la circolazione</h3>
-          <p class="wf" style="font-size:12px; color:#666;">Riattiva la circolazione linfatica e venosa, riducendo il rischio di ristagni e varici.</p>
+          <div class="beneficio-icon">🦵</div>
+          <h3 class="wf" style="font-size:14px; margin-bottom:6px;">Gambe e cellulite</h3>
+          <p class="wf" style="font-size:12px; color:#666;">Riduce con buoni risultati la cellulite e ridefinisce la forma delle gambe.</p>
+        </div>
+        <div class="beneficio-card">
+          <div class="beneficio-icon">🏥</div>
+          <h3 class="wf" style="font-size:14px; margin-bottom:6px;">Post-operatorio</h3>
+          <p class="wf" style="font-size:12px; color:#666;">Riduce con buoni risultati il linfedema post-operatorio, favorendo il recupero.</p>
+        </div>
+        <div class="beneficio-card">
+          <div class="beneficio-icon">⚽</div>
+          <h3 class="wf" style="font-size:14px; margin-bottom:6px;">Traumi sportivi</h3>
+          <p class="wf" style="font-size:12px; color:#666;">Allevia il dolore indotto da alcuni traumi sportivi e riduce l'edema post-traumatico.</p>
+        </div>
+        <div class="beneficio-card">
+          <div class="beneficio-icon">🌿</div>
+          <h3 class="wf" style="font-size:14px; margin-bottom:6px;">Detox e relax</h3>
+          <p class="wf" style="font-size:12px; color:#666;">Favorisce l'eliminazione delle tossine e dei prodotti di scarto, riducendo lo stress.</p>
         </div>
       </div>
     </section>
@@ -353,61 +389,73 @@
 <div class="section-divider">SEZIONE 6 — PRENOTA</div>
 
 <!-- ══ PRENOTA ══ -->
-<div style="background:#fff; padding:72px 40px;">
+<div style="background:#fafafa; padding:72px 40px;">
   <div style="max-width:1200px; margin:0 auto;">
     <div class="section-tag">Prenota</div>
-    <h2 class="wf">Prenota la tua seduta</h2>
-    <div class="form-grid">
-      <div>
-        <p style="font-size:15px; color:#555; line-height:1.7; margin-bottom:24px;">Compila il modulo per richiedere informazioni o prenotare il tuo primo appuntamento. Ti ricontattiamo entro 24h.</p>
-        <ul style="list-style:none; display:flex; flex-direction:column; gap:10px;">
-          <li style="font-size:14px; color:#444;">📞 031 4682567</li>
-          <li style="font-size:14px; color:#444;">💬 WhatsApp 347 3983337</li>
-          <li style="font-size:14px; color:#444;">📍 Bregnano (CO) · Carugate (MI)</li>
-          <li style="font-size:14px; color:#444;">📅 Treatwell — Prenota online</li>
-        </ul>
-      </div>
-      <div class="form-card">
-        <div class="form-row">
-          <div>
-            <label>Nome *</label>
-            <input type="text" placeholder="Il tuo nome">
-          </div>
-          <div>
-            <label>Telefono *</label>
-            <input type="tel" placeholder="+39 …">
-          </div>
+    <h2 class="wf">Prenota la tua seduta di Pressoterapia</h2>
+    <p class="wf">Compila il modulo o scegli il canale che preferisci. Ti rispondiamo entro 24h.</p>
+    <div class="prenota-grid">
+      <div class="form-box">
+        <div class="form-title">💬 Richiedi informazioni o prenota</div>
+        <div class="form-sub">Risponderemo entro poche ore · Prima consulenza gratuita</div>
+        <div class="form-field">
+          <label>Nome e Cognome *</label>
+          <input type="text" placeholder="Es. Maria Rossi">
         </div>
-        <div class="form-row full">
+        <div class="form-field">
+          <label>Telefono / WhatsApp *</label>
+          <input type="tel" placeholder="Es. 333 123 4567">
+        </div>
+        <div class="form-field">
           <label>Email</label>
-          <input type="email" placeholder="nome@email.it">
+          <input type="email" placeholder="Es. maria@email.it">
         </div>
-        <div class="form-row">
-          <div>
-            <label>Sede preferita</label>
-            <select>
-              <option>Bregnano (CO)</option>
-              <option>Carugate (MI)</option>
-              <option>Indifferente</option>
-            </select>
-          </div>
-          <div>
-            <label>Pacchetto di interesse</label>
-            <select>
-              <option>7 trattamenti — 129€</option>
-              <option>7 trattamenti + bendaggi — 229€</option>
-              <option>12 trattamenti — 199€</option>
-              <option>12 trattamenti + bendaggi — 349€</option>
-              <option>Non so ancora</option>
-            </select>
-          </div>
+        <div class="form-field">
+          <label>Sede preferita</label>
+          <select>
+            <option>Bregnano (CO)</option>
+            <option>Carugate (MI)</option>
+            <option>Indifferente</option>
+          </select>
         </div>
-        <div class="form-row full">
+        <div class="form-field">
+          <label>Pacchetto di interesse</label>
+          <select>
+            <option>-- Non so ancora --</option>
+            <option>7 trattamenti — 129€</option>
+            <option>7 trattamenti + bendaggi — 229€</option>
+            <option>12 trattamenti — 199€</option>
+            <option>12 trattamenti + bendaggi — 349€</option>
+          </select>
+          <div class="wf-note" style="margin-top:6px;">⚠️ Prezzi placeholder — inserire prezzi reali</div>
+        </div>
+        <div class="form-field">
           <label>Messaggio (opzionale)</label>
           <textarea placeholder="Descrivi il tuo obiettivo o fai una domanda…"></textarea>
         </div>
-        <button class="btn-submit">Invia Richiesta →</button>
-        <p style="font-size:11px; color:#bbb; margin-top:10px;">* Campi obbligatori — risponderemo entro 24h</p>
+        <button class="btn-form">Invia Richiesta →</button>
+        <div class="form-privacy">Inviando accetti la nostra <u>Privacy Policy</u>. I tuoi dati non saranno condivisi con terzi.</div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:20px;">
+        <div class="treatwell-box">
+          <div style="display:flex; align-items:center; gap:14px;">
+            <div style="background:#00b67a; color:#fff; font-size:13px; font-weight:800; padding:8px 16px; border-radius:8px; flex-shrink:0;">treatwell</div>
+            <div>
+              <div class="tw-stars">★★★★★</div>
+              <div style="font-size:13px; color:#555; margin-top:2px;"><strong>4,9/5</strong> · 419 recensioni</div>
+            </div>
+          </div>
+          <div style="font-size:14px; color:#555; line-height:1.6;">Prenota online in pochi clic. Scegli la sede, il giorno e l'orario che preferisci.</div>
+          <button class="btn-treatwell">📅 Prenota su Treatwell</button>
+        </div>
+        <div class="treatwell-box">
+          <div class="form-title" style="font-size:16px;">Preferisci contattarci direttamente?</div>
+          <div>
+            <button class="btn-wa">💬 Scrivici su WhatsApp</button>
+            <button class="btn-tel">📞 Chiama — 031 4682567</button>
+            <button class="btn-tel">✉ info@lovesun.it</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
